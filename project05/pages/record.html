@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>记录 - 轻瘦</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="page-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar fixed top-0 w-full z-50 flex items-center justify-between px-5">
+            <div class="text-sm font-semibold">9:41</div>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-area pt-12">
+            <!-- 顶部标题 -->
+            <div class="px-5 mb-6">
+                <h1 class="text-2xl font-bold text-gray-800">记录</h1>
+            </div>
+
+            <!-- 选项卡导航 -->
+            <div class="glass-effect mx-5 rounded-2xl p-2 mb-6">
+                <div class="grid grid-cols-3 gap-2">
+                    <button class="tab-btn active py-2 px-4 rounded-xl bg-primary-600 text-white font-medium text-sm" onclick="switchTab('food')">
+                        饮食记录
+                    </button>
+                    <button class="tab-btn py-2 px-4 rounded-xl text-gray-600 font-medium text-sm" onclick="switchTab('exercise')">
+                        运动记录
+                    </button>
+                    <button class="tab-btn py-2 px-4 rounded-xl text-gray-600 font-medium text-sm" onclick="switchTab('weight')">
+                        体重记录
+                    </button>
+                </div>
+            </div>
+
+            <!-- 饮食记录内容 -->
+            <div id="food-tab" class="tab-content active px-5">
+                <div class="glass-effect rounded-2xl p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold">快速添加</h3>
+                        <button class="text-primary-600">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl p-4 flex items-center space-x-3 hover-scale">
+                            <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center">
+                                <i class="fas fa-bread-slice text-orange-500"></i>
+                            </div>
+                            <span class="text-gray-800">早餐</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 flex items-center space-x-3 hover-scale">
+                            <div class="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                                <i class="fas fa-utensils text-green-500"></i>
+                            </div>
+                            <span class="text-gray-800">午餐</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 flex items-center space-x-3 hover-scale">
+                            <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                                <i class="fas fa-moon text-blue-500"></i>
+                            </div>
+                            <span class="text-gray-800">晚餐</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 flex items-center space-x-3 hover-scale">
+                            <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
+                                <i class="fas fa-cookie text-purple-500"></i>
+                            </div>
+                            <span class="text-gray-800">零食</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 近期饮食记录 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold mb-4">近期记录</h3>
+                    <div class="glass-effect rounded-xl p-4 flex items-center">
+                        <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-bread-slice text-orange-500"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-gray-800 font-medium">全麦面包</h4>
+                            <p class="text-sm text-gray-600">早餐 · 今天</p>
+                        </div>
+                        <span class="text-gray-600">320千卡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 运动记录内容 -->
+            <div id="exercise-tab" class="tab-content px-5">
+                <div class="glass-effect rounded-2xl p-6 mb-6">
+                    <h3 class="text-lg font-semibold mb-4">选择运动类型</h3>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white rounded-xl p-4 text-center hover-scale">
+                            <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-running text-blue-500"></i>
+                            </div>
+                            <span class="text-sm text-gray-800">跑步</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 text-center hover-scale">
+                            <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-bicycle text-green-500"></i>
+                            </div>
+                            <span class="text-sm text-gray-800">骑行</span>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 text-center hover-scale">
+                            <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-swimming-pool text-purple-500"></i>
+                            </div>
+                            <span class="text-sm text-gray-800">游泳</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 运动记录列表 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold mb-4">运动历史</h3>
+                    <div class="glass-effect rounded-xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
+                                    <i class="fas fa-running text-blue-500"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">快走</h4>
+                                    <p class="text-sm text-gray-600">45分钟</p>
+                                </div>
+                            </div>
+                            <span class="text-primary-600 font-medium">220千卡</span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-600 mt-2">
+                            <span>距离: 4.2km</span>
+                            <span>配速: 10'38"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 体重记录内容 -->
+            <div id="weight-tab" class="tab-content px-5">
+                <div class="glass-effect rounded-2xl p-6 mb-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="text-lg font-semibold">目前体重</h3>
+                            <p class="text-sm text-gray-600">上次更新：今天</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-3xl font-bold text-primary-600">65.8</span>
+                            <span class="text-gray-600 ml-1">kg</span>
+                        </div>
+                    </div>
+                    <div class="h-40 bg-gray-100 rounded-xl mb-4">
+                        <!-- 这里可以放置体重趋势图 -->
+                        <div class="w-full h-full flex items-center justify-center text-gray-400">
+                            <span>体重趋势图</span>
+                        </div>
+                    </div>
+                    <button class="w-full py-3 bg-primary-600 text-white rounded-xl font-medium hover-scale">
+                        记录今日体重
+                    </button>
+                </div>
+
+                <!-- 体重记录历史 -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold mb-4">记录历史</h3>
+                    <div class="glass-effect rounded-xl p-4">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-medium">昨天</h4>
+                                <p class="text-sm text-gray-600">3月18日</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xl font-semibold">66.2</span>
+                                <span class="text-gray-600 ml-1">kg</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="bottom-nav fixed bottom-0 w-full px-6">
+            <div class="flex justify-around items-center h-full">
+                <a href="home.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="record.html" class="flex flex-col items-center text-primary-600">
+                    <i class="fas fa-plus-circle text-xl"></i>
+                    <span class="text-xs mt-1">记录</span>
+                </a>
+                <a href="community.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-users text-xl"></i>
+                    <span class="text-xs mt-1">社区</span>
+                </a>
+                <a href="profile.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-user text-xl"></i>
+                    <span class="text-xs mt-1">我的</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // 移除所有内容的active类
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // 添加选中内容的active类
+            document.getElementById(tabId + '-tab').classList.add('active');
+            
+            // 更新按钮样式
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-primary-600', 'text-white');
+                btn.classList.add('text-gray-600');
+            });
+            // 设置选中按钮样式
+            event.target.classList.remove('text-gray-600');
+            event.target.classList.add('bg-primary-600', 'text-white');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>网易云音乐 - 设计预览</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+      :root {
+        --app-gradient: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+      }
+      body {
+        background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+      .device-frame {
+        width: 393px;
+        height: 852px;
+        position: relative;
+        border-radius: 55px;
+        background: #1a1a1a;
+        padding: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        border: 14px solid #000;
+        transition: transform 0.3s ease;
+        margin: 0 auto;
+      }
+      .device-frame:hover {
+        transform: scale(1.02);
+      }
+      .device-screen {
+        width: 100%;
+        height: 100%;
+        background: #1a1a1a;
+        border-radius: 35px;
+        overflow: hidden;
+        position: relative;
+      }
+      .device-notch {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 35px;
+        background: #000;
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+        z-index: 100;
+      }
+      .device-buttons {
+        position: absolute;
+        left: -14px;
+        top: 120px;
+        width: 3px;
+        height: 100px;
+        background: #000;
+      }
+      .device-buttons:before {
+        content: "";
+        position: absolute;
+        top: -70px;
+        width: 3px;
+        height: 25px;
+        background: #000;
+      }
+      .device-buttons:after {
+        content: "";
+        position: absolute;
+        top: -35px;
+        width: 3px;
+        height: 25px;
+        background: #000;
+      }
+      .device-power-btn {
+        position: absolute;
+        right: -14px;
+        top: 180px;
+        width: 3px;
+        height: 40px;
+        background: #000;
+      }
+      .device-details {
+        font-size: 12px;
+        color: #1ed760;
+        text-align: center;
+        margin-top: 8px;
+      }
+      .page-frame {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        -ms-overflow-style: none; /* IE和Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .page-title {
+        background: linear-gradient(to right, #1ed760, #1db954);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .frame-container {
+        position: relative;
+      }
+      .grid-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(393px, 1fr));
+        gap: 2rem;
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+      @media (max-width: 420px) {
+        .grid-layout {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+        .device-frame {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 393/852;
+        }
+      }
+      @media (min-width: 421px) and (max-width: 768px) {
+        .grid-layout {
+          padding: 1.5rem;
+        }
+      }
+      @media (min-width: 769px) and (max-width: 1280px) {
+        .grid-layout {
+          grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen pb-8">
+    <h1 class="text-4xl font-bold text-center py-12 page-title">音乐播放器界面预览</h1>
+
+    <div class="grid-layout">
+      <!-- 首页 -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-center text-[#1ED760]">首页</h2>
+        <div class="frame-container">
+          <div class="device-frame">
+            <div class="device-notch"></div>
+            <div class="device-buttons"></div>
+            <div class="device-power-btn"></div>
+            <div class="device-screen">
+              <iframe src="pages/home.html" class="page-frame"></iframe>
+            </div>
+          </div>
+          <div class="device-details">iPhone 15 Pro · 393 x 852px</div>
+        </div>
+      </div>
+
+      <!-- 搜索页 -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-center text-[#1ED760]">搜索</h2>
+        <div class="frame-container">
+          <div class="device-frame">
+            <div class="device-notch"></div>
+            <div class="device-buttons"></div>
+            <div class="device-power-btn"></div>
+            <div class="device-screen">
+              <iframe src="pages/search.html" class="page-frame"></iframe>
+            </div>
+          </div>
+          <div class="device-details">iPhone 15 Pro · 393 x 852px</div>
+        </div>
+      </div>
+
+      <!-- 音乐库 -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-center text-[#1ED760]">音乐库</h2>
+        <div class="frame-container">
+          <div class="device-frame">
+            <div class="device-notch"></div>
+            <div class="device-buttons"></div>
+            <div class="device-power-btn"></div>
+            <div class="device-screen">
+              <iframe src="pages/library.html" class="page-frame"></iframe>
+            </div>
+          </div>
+          <div class="device-details">iPhone 15 Pro · 393 x 852px</div>
+        </div>
+      </div>
+
+      <!-- 播放器 -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-center text-[#1ED760]">播放器</h2>
+        <div class="frame-container">
+          <div class="device-frame">
+            <div class="device-notch"></div>
+            <div class="device-buttons"></div>
+            <div class="device-power-btn"></div>
+            <div class="device-screen">
+              <iframe src="pages/player.html" class="page-frame"></iframe>
+            </div>
+          </div>
+          <div class="device-details">iPhone 15 Pro · 393 x 852px</div>
+        </div>
+      </div>
+
+      <!-- 个人资料 -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-center text-[#1ED760]">个人资料</h2>
+        <div class="frame-container">
+          <div class="device-frame">
+            <div class="device-notch"></div>
+            <div class="device-buttons"></div>
+            <div class="device-power-btn"></div>
+            <div class="device-screen">
+              <iframe src="pages/profile.html" class="page-frame"></iframe>
+            </div>
+          </div>
+          <div class="device-details">iPhone 15 Pro · 393 x 852px</div>
+        </div>
+      </div>
+
+      <!-- 设计说明 -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-semibold text-center text-[#1ED760]">设计说明</h2>
+        <div class="frame-container">
+          <div class="device-frame">
+            <div class="device-notch"></div>
+            <div class="device-buttons"></div>
+            <div class="device-power-btn"></div>
+            <div class="device-screen p-8 overflow-y-auto" style="scrollbar-width: none">
+              <div class="space-y-8">
+                <section>
+                  <h3 class="text-lg font-bold mb-4 text-[#1ED760]">设备规格</h3>
+                  <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>设备型号：iPhone 15 Pro</li>
+                    <li>屏幕尺寸：393 x 852 px</li>
+                    <li>显示密度：460 ppi</li>
+                    <li>刷新率：120 Hz</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 class="text-lg font-bold mb-4 text-[#1ED760]">设计特点</h3>
+                  <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>iOS风格的深色主题</li>
+                    <li>动态的交互效果</li>
+                    <li>精致的动画过渡</li>
+                    <li>高品质图像资源</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 class="text-lg font-bold mb-4 text-[#1ED760]">交互特性</h3>
+                  <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>手势控制</li>
+                    <li>沉浸式播放体验</li>
+                    <li>流畅的页面切换</li>
+                    <li>直观的操作反馈</li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h3 class="text-lg font-bold mb-4 text-[#1ED760]">技术栈</h3>
+                  <ul class="list-disc list-inside space-y-2 text-gray-300">
+                    <li>Tailwind CSS</li>
+                    <li>Modern HTML5</li>
+                    <li>CSS3 动画</li>
+                    <li>响应式设计</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="device-details">iPhone 15 Pro · 393 x 852px</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

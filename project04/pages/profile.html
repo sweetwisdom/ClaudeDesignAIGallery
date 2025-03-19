@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - 合同App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-gray-50">
+    <!-- 状态栏 -->
+    <div class="status-bar flex justify-between items-center">
+        <div class="text-sm">10:53</div>
+        <div class="flex items-center gap-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="flex-1">
+                <h1 class="text-xl font-semibold">个人中心</h1>
+            </div>
+            <button class="ml-4">
+                <i class="fas fa-qrcode text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- 个人信息卡片 -->
+        <div class="card bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+            <div class="flex items-center">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&auto=format" 
+                     alt="头像" 
+                     class="w-20 h-20 rounded-full border-2 border-white">
+                <div class="ml-4">
+                    <h2 class="text-xl font-semibold">陈经理</h2>
+                    <p class="text-blue-100 mt-1">科技有限公司</p>
+                    <p class="text-blue-100 mt-1">总经理</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据概览 -->
+        <div class="card">
+            <div class="grid grid-cols-3 gap-4">
+                <div class="text-center">
+                    <div class="text-2xl font-semibold text-gray-800">28</div>
+                    <div class="text-sm text-gray-500 mt-1">待处理</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-semibold text-gray-800">156</div>
+                    <div class="text-sm text-gray-500 mt-1">已完成</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl font-semibold text-gray-800">12</div>
+                    <div class="text-sm text-gray-500 mt-1">草稿箱</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 签名管理 -->
+        <div class="card">
+            <h2 class="text-lg font-semibold mb-4">签名管理</h2>
+            <div class="space-y-4">
+                <div class="bg-gray-50 rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="font-medium">个人签名</h3>
+                        <button class="text-blue-600 text-sm">修改</button>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1568205090970-61d09173c740?w=400&h=100&auto=format" 
+                         alt="签名" 
+                         class="w-full h-16 object-contain">
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="font-medium">公司印章</h3>
+                        <button class="text-blue-600 text-sm">查看</button>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1585998042371-16d29535cad8?w=100&h=100&auto=format" 
+                             alt="公章" 
+                             class="w-16 h-16 object-contain">
+                        <img src="https://images.unsplash.com/photo-1585998042993-9d15195d5c6d?w=100&h=100&auto=format" 
+                             alt="合同专用章" 
+                             class="w-16 h-16 object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快捷功能 -->
+        <div class="card">
+            <h2 class="text-lg font-semibold mb-4">快捷功能</h2>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto">
+                        <i class="fas fa-file-signature text-blue-600"></i>
+                    </div>
+                    <p class="text-sm mt-2">批量签署</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mx-auto">
+                        <i class="fas fa-share-alt text-green-600"></i>
+                    </div>
+                    <p class="text-sm mt-2">分享</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mx-auto">
+                        <i class="fas fa-download text-purple-600"></i>
+                    </div>
+                    <p class="text-sm mt-2">下载</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mx-auto">
+                        <i class="fas fa-history text-orange-600"></i>
+                    </div>
+                    <p class="text-sm mt-2">记录</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部标签栏 -->
+    <div class="tab-bar">
+        <div class="grid grid-cols-4 h-full">
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-home tab-icon"></i>
+                <span class="tab-label">首页</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-file-contract tab-icon"></i>
+                <span class="tab-label">模板</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-user tab-icon active"></i>
+                <span class="tab-label active">我的</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-cog tab-icon"></i>
+                <span class="tab-label">设置</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

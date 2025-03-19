@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同App - 预览</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+        }
+        /* 隐藏滚动条但保持可滚动 */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        .phone-frame {
+            width: 393px;
+            height: 852px;
+            background: white;
+            border-radius: 55px;
+            overflow: hidden;
+            position: relative;
+        }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .preview-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .preview-label {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="preview-grid">
+        <!-- 首页预览 -->
+        <div class="preview-item">
+            <div class="phone-frame shadow-2xl">
+                <iframe src="pages/home.html" frameborder="0" width="393" height="852"></iframe>
+            </div>
+            <div class="preview-label">首页</div>
+        </div>
+        
+        <!-- 合同详情预览 -->
+        <div class="preview-item">
+            <div class="phone-frame shadow-2xl">
+                <iframe src="pages/contract-detail.html" frameborder="0" width="393" height="852"></iframe>
+            </div>
+            <div class="preview-label">合同详情</div>
+        </div>
+
+        <!-- 模板预览 -->
+        <div class="preview-item">
+            <div class="phone-frame shadow-2xl">
+                <iframe src="pages/template.html" frameborder="0" width="393" height="852"></iframe>
+            </div>
+            <div class="preview-label">合同模板</div>
+        </div>
+
+        <!-- 个人中心预览 -->
+        <div class="preview-item">
+            <div class="phone-frame shadow-2xl">
+                <iframe src="pages/profile.html" frameborder="0" width="393" height="852"></iframe>
+            </div>
+            <div class="preview-label">个人中心</div>
+        </div>
+
+        <!-- 设置预览 -->
+        <div class="preview-item">
+            <div class="phone-frame shadow-2xl">
+                <iframe src="pages/settings.html" frameborder="0" width="393" height="852"></iframe>
+            </div>
+            <div class="preview-label">设置</div>
+        </div>
+    </div>
+</body>
+</html>

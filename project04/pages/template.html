@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同模板 - 合同App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-gray-50">
+    <!-- 状态栏 -->
+    <div class="status-bar flex justify-between items-center">
+        <div class="text-sm">10:53</div>
+        <div class="flex items-center gap-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="flex-1">
+                <h1 class="text-xl font-semibold">合同模板</h1>
+            </div>
+            <button class="ml-4">
+                <i class="fas fa-plus text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- 搜索栏 -->
+        <div class="search-bar">
+            <i class="fas fa-search text-gray-400"></i>
+            <input type="text" placeholder="搜索模板" class="ml-2">
+        </div>
+
+        <!-- 常用模板 -->
+        <div class="card">
+            <h2 class="text-lg font-semibold mb-4">常用模板</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-blue-50 rounded-xl p-4">
+                    <i class="fas fa-file-contract text-blue-600 text-xl mb-2"></i>
+                    <h3 class="font-medium">劳动合同</h3>
+                    <p class="text-sm text-gray-500 mt-1">标准劳动合同模板</p>
+                </div>
+                <div class="bg-green-50 rounded-xl p-4">
+                    <i class="fas fa-handshake text-green-600 text-xl mb-2"></i>
+                    <h3 class="font-medium">采购协议</h3>
+                    <p class="text-sm text-gray-500 mt-1">物资采购合同模板</p>
+                </div>
+                <div class="bg-purple-50 rounded-xl p-4">
+                    <i class="fas fa-building text-purple-600 text-xl mb-2"></i>
+                    <h3 class="font-medium">租赁合同</h3>
+                    <p class="text-sm text-gray-500 mt-1">房屋租赁合同模板</p>
+                </div>
+                <div class="bg-orange-50 rounded-xl p-4">
+                    <i class="fas fa-truck text-orange-600 text-xl mb-2"></i>
+                    <h3 class="font-medium">物流合同</h3>
+                    <p class="text-sm text-gray-500 mt-1">运输服务合同模板</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 模板分类 -->
+        <div class="card">
+            <h2 class="text-lg font-semibold mb-4">全部分类</h2>
+            <div class="space-y-4">
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-briefcase text-blue-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">商务合同</h3>
+                            <p class="text-sm text-gray-500">12个模板</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                            <i class="fas fa-user-tie text-green-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">人事合同</h3>
+                            <p class="text-sm text-gray-500">8个模板</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                            <i class="fas fa-copy text-purple-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">知识产权</h3>
+                            <p class="text-sm text-gray-500">6个模板</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-home text-orange-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">房产合同</h3>
+                            <p class="text-sm text-gray-500">5个模板</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部标签栏 -->
+    <div class="tab-bar">
+        <div class="grid grid-cols-4 h-full">
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-home tab-icon"></i>
+                <span class="tab-label">首页</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-file-contract tab-icon active"></i>
+                <span class="tab-label active">模板</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-user tab-icon"></i>
+                <span class="tab-label">我的</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-cog tab-icon"></i>
+                <span class="tab-label">设置</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

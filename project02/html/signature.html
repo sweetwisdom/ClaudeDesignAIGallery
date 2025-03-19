@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电子签名 - 合同APP</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .signature-canvas {
+            width: 100%;
+            height: 200px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        
+        .preview-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow-y: auto;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        
+        .signature-marker {
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            border: 2px dashed var(--primary-color);
+            background-color: rgba(0, 85, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .contract-page {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .signature-page {
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container signature-page">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar">
+            <div class="time">10:15</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-bar-title">电子签名</div>
+            <div class="nav-bar-right">
+                <span class="text-primary">帮助</span>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content bg-gray-100">
+            <!-- 合同信息 -->
+            <div class="card mx-4 mt-4 mb-4">
+                <div class="card-header">
+                    <div class="card-title">合同信息</div>
+                </div>
+                <div class="card-content">
+                    <h2 class="font-bold mb-2">研发项目外包服务协议</h2>
+                    <div class="text-sm text-gray-500 mb-1">合同编号: CT-2025-0319</div>
+                    <div class="text-sm text-gray-500">甲方: ABC科技有限公司 | 乙方: 北京科技有限公司</div>
+                </div>
+            </div>
+            
+            <!-- 合同预览 -->
+            <div class="card mx-4 mb-4">
+                <div class="card-header">
+                    <div class="card-title">合同预览</div>
+                    <div class="text-sm text-primary">查看全文</div>
+                </div>
+                <div class="p-0">
+                    <div class="preview-container">
+                        <div class="contract-page">
+                            <div class="text-center mb-6">
+                                <h1 class="text-xl font-bold">研发项目外包服务协议</h1>
+                            </div>
+                            
+                            <p class="text-sm mb-4">甲方：ABC科技有限公司</p>
+                            <p class="text-sm mb-4">乙方：北京科技有限公司</p>
+                            
+                            <p class="text-sm mb-2">一、项目概述</p>
+                            <p class="text-xs text-gray-700 mb-4">本协议由ABC科技有限公司（以下简称"甲方"）与北京科技有限公司（以下简称"乙方"）共同签署，就研发项目外包服务相关事宜达成协议。</p>
+                            
+                            <p class="text-xs text-gray-700 mb-4">......</p>
+                            
+                            <p class="text-sm mb-2">十二、合同签署</p>
+                            <p class="text-xs text-gray-700 mb-4">本合同一式两份，甲乙双方各执一份，具有同等法律效力。</p>
+                            
+                            <div class="flex justify-between items-start mt-6">
+                                <div class="w-1/2 pr-4">
+                                    <p class="text-sm mb-2">甲方（盖章）：</p>
+                                    <p class="text-sm mb-2">法定代表人：</p>
+                                    <p class="text-sm mb-2">日期：2025年3月19日</p>
+                                </div>
+                                <div class="w-1/2 pl-4">
+                                    <p class="text-sm mb-2">乙方（盖章）：</p>
+                                    <div class="mb-2">
+                                        <p class="text-sm">法定代表人：</p>
+                                        <div class="signature-marker">
+                                            <span class="text-primary text-sm">请在此处签名</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm mb-2">日期：2025年3月19日</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 签名区域 -->
+            <div class="card mx-4 mb-4">
+                <div class="card-header">
+                    <div class="card-title">请在此处签名</div>
+                    <button id="clear-signature" class="text-sm text-primary">清除</button>
+                </div>
+                <div class="card-content">
+                    <canvas id="signature-canvas" class="signature-canvas"></canvas>
+                </div>
+            </div>
+            
+            <!-- 签名方式选择 -->
+            <div class="card mx-4 mb-6">
+                <div class="card-header">
+                    <div class="card-title">其他签名方式</div>
+                </div>
+                <div class="card-content p-0">
+                    <div class="list">
+                        <div class="list-item">
+                            <i class="fas fa-keyboard text-primary mr-3"></i>
+                            <div class="list-item-content">
+                                <div class="list-item-title">输入签名</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-image text-primary mr-3"></i>
+                            <div class="list-item-content">
+                                <div class="list-item-title">上传签名图片</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-stamp text-primary mr-3"></i>
+                            <div class="list-item-content">
+                                <div class="list-item-title">使用企业印章</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部操作栏 -->
+        <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 flex justify-between items-center">
+            <div class="flex flex-1 mr-3">
+                <button class="btn btn-secondary btn-full flex items-center justify-center">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span>返回</span>
+                </button>
+            </div>
+            <div class="flex flex-1">
+                <button id="sign-contract-btn" class="btn btn-primary btn-full flex items-center justify-center">
+                    <i class="fas fa-pen-to-square mr-2"></i>
+                    <span>确认签署</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

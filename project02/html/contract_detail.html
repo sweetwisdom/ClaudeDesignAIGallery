@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同详情 - 合同APP</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar">
+            <div class="time">10:15</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-bar-title">合同详情</div>
+            <div class="nav-bar-right">
+                <i class="fas fa-ellipsis-vertical"></i>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content bg-gray-100">
+            <!-- 合同基本信息卡片 -->
+            <div class="card mx-4 mt-4">
+                <div class="p-4">
+                    <h1 class="text-xl font-bold mb-2">研发项目外包服务协议</h1>
+                    <div class="flex items-center mb-3">
+                        <span class="badge badge-warning mr-2">待签署</span>
+                        <span class="text-sm text-gray-500">合同编号: CT-2025-0319</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div class="text-gray-500 mb-1">创建日期</div>
+                            <div>2025-03-15</div>
+                        </div>
+                        <div>
+                            <div class="text-gray-500 mb-1">截止日期</div>
+                            <div class="text-warning font-medium">2025-03-22 (剩余3天)</div>
+                        </div>
+                        <div>
+                            <div class="text-gray-500 mb-1">合同金额</div>
+                            <div>¥ 240,000.00</div>
+                        </div>
+                        <div>
+                            <div class="text-gray-500 mb-1">合同期限</div>
+                            <div>12个月</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 相关方信息卡片 -->
+            <div class="card mx-4 mt-4">
+                <div class="card-header">
+                    <div class="card-title">相关方信息</div>
+                </div>
+                <div class="card-content">
+                    <div class="mb-4">
+                        <div class="text-gray-500 text-sm mb-1">甲方（我方）</div>
+                        <div class="font-medium">ABC科技有限公司</div>
+                        <div class="text-sm text-gray-600">法定代表人: 李明</div>
+                    </div>
+                    
+                    <div class="mb-2">
+                        <div class="text-gray-500 text-sm mb-1">乙方</div>
+                        <div class="font-medium">北京科技有限公司</div>
+                        <div class="text-sm text-gray-600">法定代表人: 王大明</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 签署状态卡片 -->
+            <div class="card mx-4 mt-4">
+                <div class="card-header">
+                    <div class="card-title">签署状态</div>
+                </div>
+                <div class="card-content">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-green-600 text-xs"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-medium">王大明（乙方）</div>
+                            <div class="text-sm text-gray-500">已签署 · 2025-03-16 15:30</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-clock text-yellow-600 text-xs"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-medium">李明（甲方）</div>
+                            <div class="text-sm text-gray-500">待签署</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 合同预览卡片 -->
+            <div class="card mx-4 mt-4">
+                <div class="card-header">
+                    <div class="card-title">合同预览</div>
+                    <a href="#" class="text-sm text-primary">查看全文</a>
+                </div>
+                <div class="p-0">
+                    <div class="h-40 bg-gray-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-file-pdf text-3xl text-gray-400"></i>
+                            <div class="text-sm text-gray-500 mt-2">研发项目外包服务协议.pdf</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 合同附件卡片 -->
+            <div class="card mx-4 mt-4 mb-6">
+                <div class="card-header">
+                    <div class="card-title">附件文件</div>
+                </div>
+                <div class="card-content p-0">
+                    <div class="list">
+                        <div class="list-item">
+                            <i class="fas fa-file-excel text-green-600 mr-3"></i>
+                            <div class="list-item-content">
+                                <div class="list-item-title">项目预算清单.xlsx</div>
+                                <div class="list-item-subtitle">1.2MB · 2025-03-15上传</div>
+                            </div>
+                            <i class="fas fa-download text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-file-word text-blue-600 mr-3"></i>
+                            <div class="list-item-content">
+                                <div class="list-item-title">项目需求说明.docx</div>
+                                <div class="list-item-subtitle">3.5MB · 2025-03-15上传</div>
+                            </div>
+                            <i class="fas fa-download text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 合同历史卡片 -->
+            <div class="card mx-4 mt-4 mb-24">
+                <div class="card-header">
+                    <div class="card-title">合同历史</div>
+                </div>
+                <div class="card-content p-0">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-pen-to-square text-blue-600 text-xs"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">王大明签署了合同</div>
+                                <div class="list-item-subtitle">2025-03-16 15:30</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-share-alt text-blue-600 text-xs"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">李明分享了合同给王大明</div>
+                                <div class="list-item-subtitle">2025-03-15 17:45</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-file-import text-blue-600 text-xs"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">李明创建了合同</div>
+                                <div class="list-item-subtitle">2025-03-15 16:30</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 底部操作栏 -->
+        <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 flex justify-between items-center">
+            <div class="flex flex-1 mr-3">
+                <button class="btn btn-secondary btn-full flex items-center justify-center">
+                    <i class="fas fa-share-alt mr-2"></i>
+                    <span>分享</span>
+                </button>
+            </div>
+            <div class="flex flex-1">
+                <button class="btn btn-primary btn-full flex items-center justify-center">
+                    <i class="fas fa-pen-to-square mr-2"></i>
+                    <span>签署合同</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

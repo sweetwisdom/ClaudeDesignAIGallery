@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人资料</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <link rel="stylesheet" href="./comm.css">
+    <style>
+        body {
+            background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateX(8px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .stats-item {
+            transition: transform 0.3s ease;
+        }
+        .stats-item:hover {
+            transform: translateY(-4px);
+        }
+        .profile-header {
+            background: linear-gradient(to bottom, rgba(30, 215, 96, 0.8), rgba(26, 26, 26, 0.8));
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+    <!-- 个人资料头部 -->
+    <div class="profile-header relative h-80">
+        <img src="https://picsum.photos/id/1040/800/600" class="w-full h-full object-cover mix-blend-overlay" alt="封面">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#1a1a1a]"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-end space-x-4">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/1041/200/200" class="w-24 h-24 rounded-full border-4 border-white shadow-xl" alt="头像">
+                    <button class="absolute bottom-0 right-0 w-8 h-8 bg-[#1ED760] rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-camera text-black text-sm"></i>
+                    </button>
+                </div>
+                <div class="flex-1">
+                    <h1 class="text-2xl font-bold mb-1">音乐爱好者</h1>
+                    <p class="text-sm text-gray-300">@music_lover</p>
+                </div>
+                <button class="px-6 py-2 bg-[#1ED760] text-black rounded-full font-medium text-sm hover:scale-105 transition-transform">
+                    编辑资料
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 统计数据 -->
+    <div class="grid grid-cols-3 gap-4 p-4">
+        <div class="stats-item bg-white/5 rounded-xl p-4 text-center cursor-pointer backdrop-blur-lg">
+            <div class="text-2xl font-bold text-[#1ED760]">283</div>
+            <div class="text-sm text-gray-400">关注</div>
+        </div>
+        <div class="stats-item bg-white/5 rounded-xl p-4 text-center cursor-pointer backdrop-blur-lg">
+            <div class="text-2xl font-bold text-[#1ED760]">14.2k</div>
+            <div class="text-sm text-gray-400">粉丝</div>
+        </div>
+        <div class="stats-item bg-white/5 rounded-xl p-4 text-center cursor-pointer backdrop-blur-lg">
+            <div class="text-2xl font-bold text-[#1ED760]">892</div>
+            <div class="text-sm text-gray-400">收藏</div>
+        </div>
+    </div>
+
+    <!-- 功能菜单 -->
+    <div class="space-y-4 p-4">
+        <div class="space-y-2">
+            <h2 class="text-lg font-semibold mb-3 px-2">音乐社交</h2>
+            <div class="menu-item flex items-center space-x-4 p-4 rounded-xl cursor-pointer">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                    <i class="fas fa-user-friends text-lg"></i>
+                </div>
+                <span class="flex-1">我的好友</span>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-400">查看全部</span>
+                    <i class="fas fa-chevron-right text-sm text-gray-400"></i>
+                </div>
+            </div>
+            <div class="menu-item flex items-center space-x-4 p-4 rounded-xl cursor-pointer">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center">
+                    <i class="fas fa-heart text-lg"></i>
+                </div>
+                <span class="flex-1">我的收藏</span>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-400">283首歌曲</span>
+                    <i class="fas fa-chevron-right text-sm text-gray-400"></i>
+                </div>
+            </div>
+            <div class="menu-item flex items-center space-x-4 p-4 rounded-xl cursor-pointer">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                    <i class="fas fa-history text-lg"></i>
+                </div>
+                <span class="flex-1">播放历史</span>
+                <i class="fas fa-chevron-right text-sm text-gray-400"></i>
+            </div>
+        </div>
+
+        <div class="space-y-2">
+            <h2 class="text-lg font-semibold mb-3 px-2">应用设置</h2>
+            <div class="menu-item flex items-center space-x-4 p-4 rounded-xl cursor-pointer">
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                    <i class="fas fa-bell text-lg"></i>
+                </div>
+                <span class="flex-1">通知与提醒</span>
+                <div class="w-11 h-6 bg-[#1ED760] rounded-full relative">
+                    <div class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+                </div>
+            </div>
+            <div class="menu-item flex items-center space-x-4 p-4 rounded-xl cursor-pointer">
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-lg"></i>
+                </div>
+                <span class="flex-1">隐私设置</span>
+                <i class="fas fa-chevron-right text-sm text-gray-400"></i>
+            </div>
+            <div class="menu-item flex items-center space-x-4 p-4 rounded-xl cursor-pointer">
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                    <i class="fas fa-cog text-lg"></i>
+                </div>
+                <span class="flex-1">通用设置</span>
+                <i class="fas fa-chevron-right text-sm text-gray-400"></i>
+            </div>
+            <div class="menu-item flex items-center space-x-4 p-4 rounded-xl cursor-pointer">
+                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                    <i class="fas fa-question-circle text-lg"></i>
+                </div>
+                <span class="flex-1">帮助与反馈</span>
+                <i class="fas fa-chevron-right text-sm text-gray-400"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 退出登录按钮 -->
+    <div class="px-4 mt-6">
+        <button class="w-full py-3 text-[#1ED760] border border-[#1ED760] rounded-full font-medium hover:bg-[#1ED760] hover:text-black transition-all duration-300">
+            退出登录
+        </button>
+    </div>
+</body>
+</html>

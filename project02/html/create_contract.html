@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建合同 - 合同APP</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar">
+            <div class="time">10:15</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-bar-title">创建合同</div>
+            <div class="nav-bar-right">
+                <span class="text-primary">保存草稿</span>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content bg-gray-100">
+            <!-- 分段控制器 -->
+            <div class="segmented-control mt-4">
+                <div class="segment active" data-target="create-from-template">
+                    从模板创建
+                </div>
+                <div class="segment" data-target="create-from-scratch">
+                    自定义创建
+                </div>
+                <div class="segment" data-target="import-contract">
+                    导入合同
+                </div>
+            </div>
+            
+            <!-- 从模板创建区域 -->
+            <div id="create-from-template" class="segment-content">
+                <!-- 常用模板 -->
+                <div class="px-4 mt-4">
+                    <h2 class="font-semibold text-base mb-3">常用模板</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-file-contract text-blue-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">劳动合同</div>
+                                <div class="list-item-subtitle">用于企业与员工之间的劳动关系约定</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-building text-green-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">房屋租赁合同</div>
+                                <div class="list-item-subtitle">用于房屋租赁双方权益的保障</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-shield-halved text-purple-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">保密协议</div>
+                                <div class="list-item-subtitle">用于保护企业机密和知识产权</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 全部模板分类 -->
+                <div class="px-4 mt-4">
+                    <h2 class="font-semibold text-base mb-3">全部分类</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-briefcase text-blue-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">商务合同</div>
+                                <div class="list-item-subtitle">12个模板</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-users text-yellow-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">人力资源</div>
+                                <div class="list-item-subtitle">8个模板</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-home text-green-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">房产租赁</div>
+                                <div class="list-item-subtitle">5个模板</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-truck text-red-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">物流运输</div>
+                                <div class="list-item-subtitle">6个模板</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-laptop-code text-indigo-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">技术服务</div>
+                                <div class="list-item-subtitle">10个模板</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 自定义创建区域 -->
+            <div id="create-from-scratch" class="segment-content p-4" style="display: none;">
+                <!-- 基本信息表单 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="card-title">基本信息</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label class="form-label" for="contract-title">合同标题</label>
+                            <input type="text" id="contract-title" class="form-input" placeholder="请输入合同标题">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="contract-type">合同类型</label>
+                            <select id="contract-type" class="form-select">
+                                <option value="">请选择合同类型</option>
+                                <option value="service">服务合同</option>
+                                <option value="purchase">采购合同</option>
+                                <option value="labor">劳动合同</option>
+                                <option value="lease">租赁合同</option>
+                                <option value="other">其他合同</option>
+                            </select>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label" for="start-date">开始日期</label>
+                                <input type="date" id="start-date" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="end-date">结束日期</label>
+                                <input type="date" id="end-date" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="contract-amount">合同金额</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <span class="text-gray-500">¥</span>
+                                </div>
+                                <input type="number" id="contract-amount" class="form-input pl-8" placeholder="0.00">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 相关方信息表单 -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="card-title">相关方信息</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label class="form-label">甲方（我方）</label>
+                            <div class="form-input bg-gray-100">ABC科技有限公司</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="party-b-name">乙方名称</label>
+                            <input type="text" id="party-b-name" class="form-input" placeholder="请输入乙方名称">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="party-b-contact">乙方联系人</label>
+                            <input type="text" id="party-b-contact" class="form-input" placeholder="请输入联系人姓名">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="party-b-phone">联系电话</label>
+                            <input type="tel" id="party-b-phone" class="form-input" placeholder="请输入联系电话">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 合同正文表单 -->
+                <div class="card mb-6">
+                    <div class="card-header">
+                        <div class="card-title">合同正文</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label class="form-label" for="contract-content">内容</label>
+                            <textarea id="contract-content" class="form-input" rows="6" placeholder="请输入合同正文内容"></textarea>
+                        </div>
+                        
+                        <div class="form-group mb-0">
+                            <label class="form-label">附件</label>
+                            <div class="border border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                <i class="fas fa-file-arrow-up text-gray-400 text-xl mb-2"></i>
+                                <div class="text-sm text-gray-500">点击上传附件</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 导入合同区域 -->
+            <div id="import-contract" class="segment-content p-4" style="display: none;">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="card-title">上传合同文件</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4">
+                            <i class="fas fa-file-arrow-up text-gray-400 text-3xl mb-4"></i>
+                            <div class="text-gray-500 mb-3">点击或拖拽文件到此处上传</div>
+                            <div class="text-xs text-gray-400">支持 PDF, Word, Excel 等格式</div>
+                        </div>
+                        
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            上传完成后，系统将自动识别合同关键信息
+                        </div>
+                        
+                        <button class="btn btn-primary btn-full">
+                            <i class="fas fa-upload mr-2"></i>
+                            选择文件
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="card-title">扫描导入</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="flex justify-center mb-4">
+                            <div class="w-40 h-40 bg-gray-200 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-camera text-gray-400 text-3xl"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="text-sm text-gray-500 mb-4 text-center">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            使用手机相机扫描纸质合同
+                        </div>
+                        
+                        <button class="btn btn-primary btn-full">
+                            <i class="fas fa-camera mr-2"></i>
+                            打开相机
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 底部操作栏 -->
+            <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
+                <button class="btn btn-primary btn-full">
+                    下一步
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>设置 - 轻瘦</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-50">
+    <div class="page-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar fixed top-0 w-full z-50 flex items-center justify-between px-5">
+            <div class="text-sm font-semibold">9:41</div>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-area pt-12 px-5">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6">设置</h1>
+
+            <!-- 个人信息设置 -->
+            <div class="glass-effect rounded-2xl p-4 mb-6">
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop" 
+                             alt="用户头像" 
+                             class="w-12 h-12 rounded-xl object-cover mr-3">
+                        <div>
+                            <h3 class="font-medium text-gray-800">小华</h3>
+                            <p class="text-sm text-gray-500">编辑个人资料</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- 基本设置 -->
+            <div class="glass-effect rounded-2xl p-4 mb-6 divide-y divide-gray-100">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2 px-2">基本设置</h2>
+                
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-bell text-blue-500"></i>
+                        </div>
+                        <span class="text-gray-700">消息通知</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+                    </label>
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center">
+                            <i class="fas fa-moon text-purple-500"></i>
+                        </div>
+                        <span class="text-gray-700">深色模式</span>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
+                    </label>
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                            <i class="fas fa-globe text-green-500"></i>
+                        </div>
+                        <span class="text-gray-700">语言</span>
+                    </div>
+                    <div class="flex items-center text-gray-600">
+                        <span class="mr-2">简体中文</span>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 隐私设置 -->
+            <div class="glass-effect rounded-2xl p-4 mb-6 divide-y divide-gray-100">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2 px-2">隐私设置</h2>
+                
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-red-500"></i>
+                        </div>
+                        <div>
+                            <span class="text-gray-700">数据可见性</span>
+                            <p class="text-xs text-gray-500">控制个人数据的展示范围</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-user-friends text-orange-500"></i>
+                        </div>
+                        <div>
+                            <span class="text-gray-700">黑名单</span>
+                            <p class="text-xs text-gray-500">管理已屏蔽的用户</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- 其他设置 -->
+            <div class="glass-effect rounded-2xl p-4 mb-6 divide-y divide-gray-100">
+                <h2 class="text-lg font-semibold text-gray-800 mb-2 px-2">其他</h2>
+                
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                            <i class="fas fa-info-circle text-gray-500"></i>
+                        </div>
+                        <span class="text-gray-700">关于我们</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+
+                <div class="flex items-center justify-between p-2 hover-scale">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
+                            <i class="fas fa-question-circle text-gray-500"></i>
+                        </div>
+                        <span class="text-gray-700">帮助与反馈</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- 退出登录按钮 -->
+            <button class="w-full py-4 text-red-500 font-medium glass-effect rounded-xl mb-6 hover-scale">
+                退出登录
+            </button>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="bottom-nav fixed bottom-0 w-full px-6">
+            <div class="flex justify-around items-center h-full">
+                <a href="home.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="record.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-plus-circle text-xl"></i>
+                    <span class="text-xs mt-1">记录</span>
+                </a>
+                <a href="community.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-users text-xl"></i>
+                    <span class="text-xs mt-1">社区</span>
+                </a>
+                <a href="profile.html" class="flex flex-col items-center text-primary-600">
+                    <i class="fas fa-user text-xl"></i>
+                    <span class="text-xs mt-1">我的</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

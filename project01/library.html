@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐库 - 音乐App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .library-tab {
+            padding: 10px 0;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .library-tab.active {
+            color: #ff2d55;
+            border-bottom: 2px solid #ff2d55;
+            font-weight: 600;
+        }
+        
+        .playlist-cover {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .create-playlist {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-network">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi ml-1"></i>
+        </div>
+        <div class="status-bar-time">20:49</div>
+        <div class="status-bar-battery">
+            <i class="fas fa-battery-full"></i>
+            <span class="ml-1">100%</span>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <!-- 顶部导航 -->
+        <div class="px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">我的音乐库</h1>
+            <div>
+                <a href="search.html" class="p-2 text-gray-600"><i class="fas fa-search text-xl"></i></a>
+            </div>
+        </div>
+        
+        <!-- 分类选项卡 -->
+        <div class="flex border-b border-gray-200">
+            <button class="library-tab active">歌单</button>
+            <button class="library-tab">专辑</button>
+            <button class="library-tab">歌手</button>
+            <button class="library-tab">下载</button>
+        </div>
+        
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 播放列表 -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-lg font-bold">我创建的歌单</h2>
+                    <a href="#" class="text-sm text-gray-500"><i class="fas fa-plus"></i> 新建</a>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-5">
+                    <div class="card p-3">
+                        <div class="flex items-center">
+                            <div class="relative mr-3">
+                                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1470&auto=format&fit=crop" alt="我喜欢的音乐" class="playlist-cover">
+                                <div class="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-sm">我喜欢的音乐</h3>
+                                <p class="text-xs text-gray-500">128首</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <div class="create-playlist">
+                            <i class="fas fa-plus text-2xl text-gray-400 mb-2"></i>
+                            <p class="text-sm text-gray-500">创建歌单</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-lg font-bold">收藏的歌单</h2>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-5">
+                    <div class="card p-3">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1470&auto=format&fit=crop" alt="歌单封面" class="playlist-cover mr-3">
+                            <div>
+                                <h3 class="font-bold text-sm">2024流行热歌</h3>
+                                <p class="text-xs text-gray-500">官方歌单 · 93首</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1421217336522-861978fdf33a?q=80&w=1470&auto=format&fit=crop" alt="歌单封面" class="playlist-cover mr-3">
+                            <div>
+                                <h3 class="font-bold text-sm">摇滚经典100首</h3>
+                                <p class="text-xs text-gray-500">官方歌单 · 100首</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="歌单封面" class="playlist-cover mr-3">
+                            <div>
+                                <h3 class="font-bold text-sm">午后轻音乐</h3>
+                                <p class="text-xs text-gray-500">私人歌单 · 45首</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 最近播放 -->
+            <div class="mb-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-lg font-bold">最近播放</h2>
+                    <a href="#" class="text-sm text-gray-500">更多 <i class="fas fa-chevron-right text-xs"></i></a>
+                </div>
+                
+                <div class="flex space-x-4 overflow-x-auto pb-2">
+                    <div class="flex flex-col items-center w-20">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-20 h-20 object-cover rounded-lg">
+                        </div>
+                        <p class="text-xs mt-2 text-center truncate w-full">心跳节奏</p>
+                        <p class="text-xs text-gray-500 truncate w-full">莉莉</p>
+                    </div>
+                    <div class="flex flex-col items-center w-20">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-20 h-20 object-cover rounded-lg">
+                        </div>
+                        <p class="text-xs mt-2 text-center truncate w-full">夏日晚风</p>
+                        <p class="text-xs text-gray-500 truncate w-full">周杰</p>
+                    </div>
+                    <div class="flex flex-col items-center w-20">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-20 h-20 object-cover rounded-lg">
+                        </div>
+                        <p class="text-xs mt-2 text-center truncate w-full">城市之光</p>
+                        <p class="text-xs text-gray-500 truncate w-full">张明</p>
+                    </div>
+                    <div class="flex flex-col items-center w-20">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-20 h-20 object-cover rounded-lg">
+                        </div>
+                        <p class="text-xs mt-2 text-center truncate w-full">夏日清新曲调</p>
+                        <p class="text-xs text-gray-500 truncate w-full">歌单</p>
+                    </div>
+                    <div class="flex flex-col items-center w-20">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1421217336522-861978fdf33a?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-20 h-20 object-cover rounded-lg">
+                        </div>
+                        <p class="text-xs mt-2 text-center truncate w-full">轻松民谣</p>
+                        <p class="text-xs text-gray-500 truncate w-full">歌单</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 迷你播放器 -->
+    <div class="mini-player">
+        <div class="flex items-center">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="当前播放" class="w-10 h-10 rounded-md mr-3">
+            <div>
+                <h3 class="font-medium text-sm">心跳节奏</h3>
+                <p class="text-xs text-gray-500">莉莉</p>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <div class="equalizer mr-3">
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+            </div>
+            <button class="play-btn w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-pause text-gray-700"></i>
+            </button>
+            <button class="ml-3">
+                <i class="fas fa-forward text-gray-700"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 底部导航栏 -->
+    <div class="tab-bar">
+        <a href="home.html" class="tab-bar-item" data-tab="home">
+            <i class="fas fa-home"></i>
+            <span>发现</span>
+        </a>
+        <a href="library.html" class="tab-bar-item active" data-tab="library">
+            <i class="fas fa-music"></i>
+            <span>音乐库</span>
+        </a>
+        <a href="community.html" class="tab-bar-item" data-tab="community">
+            <i class="fas fa-compass"></i>
+            <span>社区</span>
+        </a>
+        <a href="profile.html" class="tab-bar-item" data-tab="profile">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </a>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/* 兼容性处理 */
+body,html {
+  -ms-overflow-style: none; /* IE和Edge */
+  scrollbar-width: none; /* Firefox */
+}

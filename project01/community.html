@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区 - 音乐App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .community-tab {
+            padding: 10px 0;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .community-tab.active {
+            color: #ff2d55;
+            border-bottom: 2px solid #ff2d55;
+            font-weight: 600;
+        }
+        
+        .post-card {
+            border-bottom: 8px solid #f2f2f7;
+        }
+        
+        .post-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .post-action {
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            color: #8e8e93;
+        }
+        
+        .post-action i {
+            margin-right: 4px;
+        }
+        
+        .topic-card {
+            border-radius: 12px;
+            overflow: hidden;
+            width: 160px;
+            height: 80px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .topic-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-network">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi ml-1"></i>
+        </div>
+        <div class="status-bar-time">20:49</div>
+        <div class="status-bar-battery">
+            <i class="fas fa-battery-full"></i>
+            <span class="ml-1">100%</span>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <!-- 顶部导航 -->
+        <div class="px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">社区</h1>
+            <div class="flex">
+                <a href="#" class="p-2 text-gray-600"><i class="fas fa-bell text-xl"></i></a>
+                <a href="#" class="p-2 text-gray-600"><i class="fas fa-edit text-xl"></i></a>
+            </div>
+        </div>
+        
+        <!-- 分类选项卡 -->
+        <div class="flex border-b border-gray-200">
+            <button class="community-tab active">动态</button>
+            <button class="community-tab">关注</button>
+            <button class="community-tab">附近</button>
+            <button class="community-tab">话题</button>
+        </div>
+        
+        <!-- 热门话题 -->
+        <div class="p-4">
+            <div class="flex justify-between items-center mb-3">
+                <h2 class="font-bold">热门话题</h2>
+                <a href="#" class="text-sm text-gray-500">更多 <i class="fas fa-chevron-right text-xs"></i></a>
+            </div>
+            
+            <div class="flex space-x-3 overflow-x-auto">
+                <div class="topic-card">
+                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1470&auto=format&fit=crop" alt="演唱会" class="w-full h-full object-cover">
+                    <div class="topic-overlay">
+                        <span class="text-sm font-bold">#2025年演唱会</span>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1374&auto=format&fit=crop" alt="新歌" class="w-full h-full object-cover">
+                    <div class="topic-overlay">
+                        <span class="text-sm font-bold">#新歌分享</span>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1470&auto=format&fit=crop" alt="音乐节" class="w-full h-full object-cover">
+                    <div class="topic-overlay">
+                        <span class="text-sm font-bold">#夏日音乐节</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 动态列表 -->
+        <div class="pb-20">
+            <!-- 动态 1 -->
+            <div class="post-card bg-white p-4">
+                <div class="flex items-center mb-3">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1288&auto=format&fit=crop" alt="用户头像" class="avatar mr-3">
+                    <div>
+                        <h3 class="font-bold">王小美</h3>
+                        <p class="text-xs text-gray-500">3小时前</p>
+                    </div>
+                    <button class="ml-auto text-gray-400">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                
+                <p class="mb-3">今天去看了莉莉的演唱会，超级棒！分享一下我最爱的一首歌 #新歌分享</p>
+                
+                <div class="bg-gray-100 rounded-lg p-3 flex items-center mb-3">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="歌曲" class="w-12 h-12 rounded-md mr-3">
+                    <div class="flex-1">
+                        <h4 class="font-medium text-sm">心跳节奏</h4>
+                        <p class="text-xs text-gray-500">莉莉 - 心动时刻</p>
+                    </div>
+                    <button class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-gray-700 text-xs"></i>
+                    </button>
+                </div>
+                
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1470&auto=format&fit=crop" alt="演唱会照片" class="post-image mb-3">
+                
+                <div class="flex border-t border-gray-100 mt-2">
+                    <button class="post-action flex-1">
+                        <i class="far fa-heart"></i>
+                        <span>128</span>
+                    </button>
+                    <button class="post-action flex-1">
+                        <i class="far fa-comment"></i>
+                        <span>36</span>
+                    </button>
+                    <button class="post-action flex-1" onclick="showShareOptions()">
+                        <i class="far fa-share-square"></i>
+                        <span>分享</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 动态 2 -->
+            <div class="post-card bg-white p-4">
+                <div class="flex items-center mb-3">
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=1399&auto=format&fit=crop" alt="用户头像" class="avatar mr-3">
+                    <div>
+                        <h3 class="font-bold">音乐潮人</h3>
+                        <p class="text-xs text-gray-500">昨天 21:30</p>
+                    </div>
+                    <button class="ml-auto text-gray-400">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                
+                <p class="mb-3">推荐一个超赞的歌单，适合夏天听的清新曲调，已经单曲循环一整天了 #夏日歌单</p>
+                
+                <div class="bg-gray-100 rounded-lg p-3 flex items-center mb-3">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1470&auto=format&fit=crop" alt="歌单" class="w-12 h-12 rounded-md mr-3">
+                    <div class="flex-1">
+                        <h4 class="font-medium text-sm">夏日清新曲调</h4>
+                        <p class="text-xs text-gray-500">歌单 · 45首歌曲</p>
+                    </div>
+                    <button class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-gray-700 text-xs"></i>
+                    </button>
+                </div>
+                
+                <div class="flex border-t border-gray-100 mt-2">
+                    <button class="post-action flex-1">
+                        <i class="far fa-heart"></i>
+                        <span>95</span>
+                    </button>
+                    <button class="post-action flex-1">
+                        <i class="far fa-comment"></i>
+                        <span>14</span>
+                    </button>
+                    <button class="post-action flex-1" onclick="showShareOptions()">
+                        <i class="far fa-share-square"></i>
+                        <span>分享</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 动态 3 -->
+            <div class="post-card bg-white p-4">
+                <div class="flex items-center mb-3">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1374&auto=format&fit=crop" alt="用户头像" class="avatar mr-3">
+                    <div>
+                        <h3 class="font-bold">张小明 <span class="text-xs text-blue-500 ml-1">音乐人</span></h3>
+                        <p class="text-xs text-gray-500">2天前</p>
+                    </div>
+                    <button class="ml-auto text-gray-400">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+                
+                <p class="mb-3">很高兴宣布我的新专辑《城市之光》正式上线！感谢大家的支持 #新歌发布</p>
+                
+                <div class="bg-gray-100 rounded-lg p-3 flex items-center mb-3">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-12 h-12 rounded-md mr-3">
+                    <div class="flex-1">
+                        <h4 class="font-medium text-sm">城市之光</h4>
+                        <p class="text-xs text-gray-500">张明 - 新专辑</p>
+                    </div>
+                    <button class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                        <i class="fas fa-play text-gray-700 text-xs"></i>
+                    </button>
+                </div>
+                
+                <div class="flex border-t border-gray-100 mt-2">
+                    <button class="post-action flex-1">
+                        <i class="far fa-heart"></i>
+                        <span>256</span>
+                    </button>
+                    <button class="post-action flex-1">
+                        <i class="far fa-comment"></i>
+                        <span>78</span>
+                    </button>
+                    <button class="post-action flex-1" onclick="showShareOptions()">
+                        <i class="far fa-share-square"></i>
+                        <span>分享</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 浮动发布按钮 -->
+    <div class="fixed bottom-24 right-4 z-10">
+        <button class="w-14 h-14 bg-gradient-to-r from-pink-500 to-red-500 rounded-full shadow-lg flex items-center justify-center">
+            <i class="fas fa-plus text-white text-xl"></i>
+        </button>
+    </div>
+    
+    <!-- 迷你播放器 -->
+    <div class="mini-player">
+        <div class="flex items-center">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="当前播放" class="w-10 h-10 rounded-md mr-3">
+            <div>
+                <h3 class="font-medium text-sm">心跳节奏</h3>
+                <p class="text-xs text-gray-500">莉莉</p>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <div class="equalizer mr-3">
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+            </div>
+            <button class="play-btn w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-pause text-gray-700"></i>
+            </button>
+            <button class="ml-3">
+                <i class="fas fa-forward text-gray-700"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 底部导航栏 -->
+    <div class="tab-bar">
+        <a href="home.html" class="tab-bar-item" data-tab="home">
+            <i class="fas fa-home"></i>
+            <span>发现</span>
+        </a>
+        <a href="library.html" class="tab-bar-item" data-tab="library">
+            <i class="fas fa-music"></i>
+            <span>音乐库</span>
+        </a>
+        <a href="community.html" class="tab-bar-item active" data-tab="community">
+            <i class="fas fa-compass"></i>
+            <span>社区</span>
+        </a>
+        <a href="profile.html" class="tab-bar-item" data-tab="profile">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </a>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script>
+        function showShareOptions() {
+            alert('分享此动态');
+        }
+    </script>
+</body>
+</html>

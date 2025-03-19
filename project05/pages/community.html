@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>社区 - 轻瘦</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-50">
+    <div class="page-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar fixed top-0 w-full z-50 flex items-center justify-between px-5">
+            <div class="text-sm font-semibold">9:41</div>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-area pt-12">
+            <!-- 顶部标题和搜索栏 -->
+            <div class="px-5 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h1 class="text-2xl font-bold text-gray-800">社区</h1>
+                    <button class="w-10 h-10 rounded-xl bg-primary-600 text-white flex items-center justify-center hover-scale">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="glass-effect rounded-xl flex items-center p-3">
+                    <i class="fas fa-search text-gray-400 mr-3"></i>
+                    <input type="text" placeholder="搜索健康话题" class="bg-transparent w-full outline-none text-gray-700">
+                </div>
+            </div>
+
+            <!-- 话题标签 -->
+            <div class="mb-6 px-5">
+                <div class="flex space-x-3 overflow-x-auto no-scrollbar">
+                    <button class="px-4 py-2 bg-primary-600 text-white rounded-xl whitespace-nowrap text-sm font-medium">
+                        全部
+                    </button>
+                    <button class="px-4 py-2 bg-white text-gray-600 rounded-xl whitespace-nowrap text-sm font-medium hover-scale">
+                        减重打卡
+                    </button>
+                    <button class="px-4 py-2 bg-white text-gray-600 rounded-xl whitespace-nowrap text-sm font-medium hover-scale">
+                        健康食谱
+                    </button>
+                    <button class="px-4 py-2 bg-white text-gray-600 rounded-xl whitespace-nowrap text-sm font-medium hover-scale">
+                        运动分享
+                    </button>
+                    <button class="px-4 py-2 bg-white text-gray-600 rounded-xl whitespace-nowrap text-sm font-medium hover-scale">
+                        成功案例
+                    </button>
+                </div>
+            </div>
+
+            <!-- 动态内容 -->
+            <div class="space-y-6 px-5">
+                <!-- 动态卡片1 -->
+                <div class="glass-effect rounded-2xl p-4">
+                    <!-- 用户信息 -->
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50&h=50&fit=crop" 
+                             alt="用户头像" 
+                             class="w-10 h-10 rounded-full object-cover">
+                        <div class="ml-3 flex-1">
+                            <h3 class="font-semibold text-gray-800">晨跑达人</h3>
+                            <p class="text-xs text-gray-500">2小时前</p>
+                        </div>
+                        <button class="text-primary-600">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <!-- 内容 -->
+                    <p class="text-gray-700 mb-4">
+                        今天的晨跑完成！🏃‍♂️ 5公里用时30分钟，感觉状态越来越好了。保持运动真的能带来很大的改变，不仅体重在慢慢下降，整个人的精气神也不一样了！
+                    </p>
+                    <!-- 图片 -->
+                    <div class="rounded-xl overflow-hidden mb-4">
+                        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=500&h=300&fit=crop" 
+                             alt="跑步截图" 
+                             class="w-full object-cover">
+                    </div>
+                    <!-- 互动栏 -->
+                    <div class="flex justify-between items-center text-gray-500 text-sm">
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-heart"></i>
+                            <span>238</span>
+                        </button>
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-comment"></i>
+                            <span>42</span>
+                        </button>
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-share-square"></i>
+                            <span>分享</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 动态卡片2 -->
+                <div class="glass-effect rounded-2xl p-4">
+                    <!-- 用户信息 -->
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?w=50&h=50&fit=crop" 
+                             alt="用户头像" 
+                             class="w-10 h-10 rounded-full object-cover">
+                        <div class="ml-3 flex-1">
+                            <h3 class="font-semibold text-gray-800">轻食主义者</h3>
+                            <p class="text-xs text-gray-500">4小时前</p>
+                        </div>
+                        <button class="text-primary-600">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <!-- 内容 -->
+                    <p class="text-gray-700 mb-4">
+                        分享一道低卡午餐：藜麦鸡胸肉沙拉🥗
+                        
+                        食材：藜麦、煎鸡胸肉、西兰花、小番茄、牛油果
+                        调味：橄榄油、柠檬汁、黑胡椒
+                        
+                        营养均衡，热量不超过400卡，超级美味！
+                    </p>
+                    <!-- 图片网格 -->
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=200&fit=crop" 
+                             alt="食物照片" 
+                             class="w-full h-40 object-cover rounded-xl">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop" 
+                             alt="食物照片" 
+                             class="w-full h-40 object-cover rounded-xl">
+                    </div>
+                    <!-- 互动栏 -->
+                    <div class="flex justify-between items-center text-gray-500 text-sm">
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-heart"></i>
+                            <span>156</span>
+                        </button>
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-comment"></i>
+                            <span>28</span>
+                        </button>
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-share-square"></i>
+                            <span>分享</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 成功案例卡片 -->
+                <div class="glass-effect rounded-2xl p-4">
+                    <!-- 用户信息 -->
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1479936343636-73cdc5aae0c3?w=50&h=50&fit=crop" 
+                             alt="用户头像" 
+                             class="w-10 h-10 rounded-full object-cover">
+                        <div class="ml-3 flex-1">
+                            <h3 class="font-semibold text-gray-800">减重小达人</h3>
+                            <p class="text-xs text-gray-500">昨天</p>
+                        </div>
+                        <div class="bg-primary-100 text-primary-600 px-3 py-1 rounded-full text-xs font-medium">
+                            -15kg
+                        </div>
+                    </div>
+                    <!-- 内容 -->
+                    <p class="text-gray-700 mb-4">
+                        历时3个月，终于达到了减重目标！分享一下我的心得：
+                        1. 控制饮食很重要，但不要太极端
+                        2. 坚持运动，每周至少4次
+                        3. 保持好心态，不要给自己太大压力
+                        
+                        感谢这段时间大家的支持和鼓励❤️
+                    </p>
+                    <!-- 对比图 -->
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1581009137042-c552e485697a?w=200&h=300&fit=crop" 
+                                 alt="之前" 
+                                 class="w-full h-48 object-cover rounded-xl">
+                            <span class="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
+                                之前
+                            </span>
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=200&h=300&fit=crop" 
+                                 alt="之后" 
+                                 class="w-full h-48 object-cover rounded-xl">
+                            <span class="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
+                                之后
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 互动栏 -->
+                    <div class="flex justify-between items-center text-gray-500 text-sm">
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-heart"></i>
+                            <span>521</span>
+                        </button>
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-comment"></i>
+                            <span>128</span>
+                        </button>
+                        <button class="flex items-center space-x-2 hover:text-primary-600">
+                            <i class="far fa-share-square"></i>
+                            <span>分享</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="bottom-nav fixed bottom-0 w-full px-6">
+            <div class="flex justify-around items-center h-full">
+                <a href="home.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="record.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-plus-circle text-xl"></i>
+                    <span class="text-xs mt-1">记录</span>
+                </a>
+                <a href="community.html" class="flex flex-col items-center text-primary-600">
+                    <i class="fas fa-users text-xl"></i>
+                    <span class="text-xs mt-1">社区</span>
+                </a>
+                <a href="profile.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-user text-xl"></i>
+                    <span class="text-xs mt-1">我的</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

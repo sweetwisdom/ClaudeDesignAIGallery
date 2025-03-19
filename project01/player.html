@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播放器 - 音乐App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #fd7966, #b44c99);
+            color: white;
+        }
+        
+        .player-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 0 30px 0;
+        }
+        
+        .album-art {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .progress-filled {
+            height: 100%;
+            width: 35%;
+            background-color: white;
+            border-radius: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .progress-handle {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -4px;
+            left: 35%;
+            margin-left: -6px;
+        }
+        
+        .player-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 250px;
+            margin: 0 auto;
+        }
+        
+        .control-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .play-control {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            color: #fd7966;
+        }
+        
+        .action-icons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 30px;
+        }
+        
+        .album-rotate {
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 波形动画 */
+        .wave-container {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+        }
+        
+        .wave-bar {
+            width: 3px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-network">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi ml-1"></i>
+        </div>
+        <div class="status-bar-time">20:49</div>
+        <div class="status-bar-battery">
+            <i class="fas fa-battery-full"></i>
+            <span class="ml-1">100%</span>
+        </div>
+    </div>
+    
+    <!-- 播放器容器 -->
+    <div class="player-container">
+        <!-- 顶部导航 -->
+        <div class="px-4 py-3 flex justify-between items-center">
+            <button onclick="window.history.back()" class="text-white">
+                <i class="fas fa-chevron-down text-xl"></i>
+            </button>
+            <div>
+                <h2 class="text-center font-semibold">正在播放</h2>
+                <p class="text-center text-sm opacity-70">来自专辑《心动时刻》</p>
+            </div>
+            <button class="text-white">
+                <i class="fas fa-ellipsis-h text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 专辑封面 -->
+        <div class="flex-1 flex flex-col justify-center items-center px-6">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="专辑封面" class="album-art album-rotate">
+            </div>
+            
+            <!-- 音乐波形 -->
+            <div class="wave-container my-8">
+                <div class="wave-bar h-5"></div>
+                <div class="wave-bar h-7"></div>
+                <div class="wave-bar h-10"></div>
+                <div class="wave-bar h-14"></div>
+                <div class="wave-bar h-20"></div>
+                <div class="wave-bar h-30"></div>
+                <div class="wave-bar h-40"></div>
+                <div class="wave-bar h-35"></div>
+                <div class="wave-bar h-50"></div>
+                <div class="wave-bar h-35"></div>
+                <div class="wave-bar h-40"></div>
+                <div class="wave-bar h-30"></div>
+                <div class="wave-bar h-20"></div>
+                <div class="wave-bar h-14"></div>
+                <div class="wave-bar h-10"></div>
+                <div class="wave-bar h-7"></div>
+                <div class="wave-bar h-5"></div>
+            </div>
+        </div>
+        
+        <!-- 歌曲信息 -->
+        <div class="px-10 mb-6">
+            <div class="flex justify-between items-center mb-3">
+                <div>
+                    <h1 class="text-2xl font-bold">心跳节奏</h1>
+                    <p class="text-sm opacity-70">莉莉</p>
+                </div>
+                <button class="text-white">
+                    <i class="far fa-heart text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- 进度条 -->
+            <div class="mb-2">
+                <div class="progress-bar">
+                    <div class="progress-filled"></div>
+                    <div class="progress-handle"></div>
+                </div>
+            </div>
+            <div class="flex justify-between text-sm opacity-70">
+                <span>1:21</span>
+                <span>3:45</span>
+            </div>
+        </div>
+        
+        <!-- 控制按钮 -->
+        <div class="mb-10">
+            <!-- 操作图标 -->
+            <div class="action-icons mb-8">
+                <button class="text-white opacity-70">
+                    <i class="fas fa-random text-xl"></i>
+                </button>
+                <button class="text-white opacity-70">
+                    <i class="fas fa-redo text-xl"></i>
+                </button>
+                <button class="text-white opacity-70">
+                    <i class="fas fa-download text-xl"></i>
+                </button>
+                <button class="text-white opacity-70" onclick="showShareOptions()">
+                    <i class="fas fa-share-alt text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 播放控制 -->
+            <div class="player-controls">
+                <button class="control-button">
+                    <i class="fas fa-step-backward text-xl"></i>
+                </button>
+                <button class="control-button play-control">
+                    <i class="fas fa-pause text-xl"></i>
+                </button>
+                <button class="control-button">
+                    <i class="fas fa-step-forward text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 播放列表提示 -->
+        <div class="text-center">
+            <button class="flex items-center justify-center mx-auto opacity-70">
+                <i class="fas fa-list-ul mr-2"></i>
+                <span>播放列表</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script>
+        // 波形动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const waveBars = document.querySelectorAll('.wave-bar');
+            
+            function animateWave() {
+                waveBars.forEach(bar => {
+                    const randomHeight = Math.floor(Math.random() * 40) + 5;
+                    bar.style.height = `${randomHeight}px`;
+                    
+                    // 随机动画时长
+                    const animDuration = Math.random() * 0.3 + 0.2;
+                    bar.style.transition = `height ${animDuration}s ease`;
+                });
+                
+                setTimeout(animateWave, 300);
+            }
+            
+            animateWave();
+            
+            // 进度条拖动模拟
+            const progressBar = document.querySelector('.progress-bar');
+            const progressFilled = document.querySelector('.progress-filled');
+            const progressHandle = document.querySelector('.progress-handle');
+            
+            progressBar.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const position = ((e.clientX - rect.left) / rect.width) * 100;
+                
+                progressFilled.style.width = `${position}%`;
+                progressHandle.style.left = `${position}%`;
+            });
+        });
+        
+        // 显示分享选项
+        function showShareOptions() {
+            alert('分享此歌曲');
+        }
+    </script>
+</body>
+</html>

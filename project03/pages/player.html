@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在播放</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link rel="stylesheet" href="./comm.css">
+    <style>
+        body {
+            background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .album-rotating {
+            animation: rotate 20s linear infinite;
+            animation-play-state: running;
+            will-change: transform;
+        }
+        .album-rotating.paused {
+            animation-play-state: paused;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .control-button {
+            transition: all 0.3s ease;
+            will-change: transform;
+        }
+        .control-button:hover {
+            transform: scale(1.1);
+        }
+        .progress-container {
+            position: relative;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .progress-container:hover .progress-bar {
+            height: 6px;
+        }
+        .progress-container:hover .progress-handle {
+            transform: scale(1);
+        }
+        .progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 4px;
+            width: var(--progress);
+            background: linear-gradient(90deg, #1ED760 0%, #1DB954 100%);
+            border-radius: 3px;
+            transition: height 0.2s ease;
+        }
+        .progress-handle {
+            position: absolute;
+            left: var(--progress);
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .progress-hover {
+            position: absolute;
+            top: -30px;
+            left: var(--hover-position);
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+        .progress-container:hover .progress-hover {
+            opacity: 1;
+        }
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            overflow: hidden;
+        }
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1ED760;
+            cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: -100vw 0 0 100vw #1ED760;
+        }
+        .volume-slider::-webkit-slider-runnable-track {
+            height: 4px;
+            border-radius: 2px;
+        }
+        .lyrics-panel {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .lyrics-container::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+    <!-- 顶部导航 -->
+    <header class="p-4 flex items-center justify-between bg-[#1a1a1a]/95 backdrop-blur-lg z-10">
+        <button class="control-button w-10 h-10 flex items-center justify-center" onclick="window.history.back()">
+            <i class="fas fa-chevron-down text-xl"></i>
+        </button>
+        <div class="text-center flex-1 cursor-pointer" onclick="toggleLyrics()">
+            <h1 class="font-medium text-lg">这一生关于你的风景</h1>
+            <p class="text-sm text-gray-400">张学友</p>
+        </div>
+        <button class="control-button w-10 h-10 flex items-center justify-center">
+            <i class="fas fa-ellipsis-vertical"></i>
+        </button>
+    </header>
+
+    <!-- 专辑封面 -->
+    <div class="flex-1 flex items-center justify-center p-8 relative">
+        <div class="relative w-72 h-72">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-xl opacity-20"></div>
+            <div class="w-72 h-72 rounded-full bg-zinc-900/80 absolute"></div>
+            <img src="https://picsum.photos/id/1045/400/400" 
+                 class="w-64 h-64 rounded-full shadow-2xl album-rotating absolute left-4 top-4" 
+                 alt="专辑封面">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-4 h-4 rounded-full bg-white"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 播放控制区 -->
+    <div class="p-8 pb-12 bg-gradient-to-t from-black/40">
+        <!-- 进度条 -->
+        <div class="mb-8 space-y-2">
+            <div id="progressContainer" class="progress-container">
+                <div class="progress-bar" style="--progress: 45%"></div>
+                <div class="progress-handle"></div>
+                <div class="progress-hover"></div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-400">
+                <span id="currentTime">2:34</span>
+                <span id="totalTime">4:18</span>
+            </div>
+        </div>
+
+        <!-- 播放控制器 -->
+        <div class="flex items-center justify-between mb-8">
+            <button class="control-button w-12 h-12 flex items-center justify-center group">
+                <i class="fas fa-shuffle text-[#1ED760] group-hover:text-[#1db954]"></i>
+            </button>
+            <button class="control-button w-12 h-12 flex items-center justify-center">
+                <i class="fas fa-backward-step text-2xl"></i>
+            </button>
+            <button class="control-button w-16 h-16 bg-[#1ED760] rounded-full flex items-center justify-center shadow-lg hover:bg-[#1db954] transition-colors">
+                <i class="fas fa-pause text-black text-xl"></i>
+            </button>
+            <button class="control-button w-12 h-12 flex items-center justify-center">
+                <i class="fas fa-forward-step text-2xl"></i>
+            </button>
+            <button class="control-button w-12 h-12 flex items-center justify-center group">
+                <i class="fas fa-repeat text-[#1ED760] group-hover:text-[#1db954]"></i>
+            </button>
+        </div>
+
+        <!-- 功能按钮 -->
+        <div class="flex justify-between items-center">
+            <button class="control-button w-12 h-12 flex items-center justify-center group">
+                <i class="fas fa-laptop text-gray-400 group-hover:text-white"></i>
+            </button>
+            <div class="flex items-center space-x-8">
+                <button class="control-button w-12 h-12 flex items-center justify-center group">
+                    <i class="fas fa-heart text-[#1ED760] group-hover:text-[#1db954]"></i>
+                </button>
+                <button class="control-button w-12 h-12 flex items-center justify-center group">
+                    <i class="fas fa-list text-gray-400 group-hover:text-white"></i>
+                </button>
+                <button class="control-button w-12 h-12 flex items-center justify-center group">
+                    <i class="fas fa-share-alt text-gray-400 group-hover:text-white"></i>
+                </button>
+            </div>
+            <div class="group relative">
+                <button class="control-button w-12 h-12 flex items-center justify-center">
+                    <i class="fas fa-volume-high text-gray-400 group-hover:text-white"></i>
+                </button>
+                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-32 p-2 bg-zinc-800 rounded-lg shadow-xl">
+                    <input type="range" class="volume-slider" min="0" max="100" value="80">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 歌词面板 -->
+    <div class="lyrics-panel fixed inset-0 bg-[#1a1a1a] translate-y-full" id="lyricsPanel">
+        <div class="h-full flex flex-col">
+            <div class="p-4 flex items-center justify-between bg-[#1a1a1a]/95 backdrop-blur-lg">
+                <button class="control-button w-10 h-10 flex items-center justify-center" onclick="closeLyrics()">
+                    <i class="fas fa-chevron-down text-xl"></i>
+                </button>
+                <h2 class="text-center flex-1">歌词</h2>
+                <button class="control-button w-10 h-10 flex items-center justify-center">
+                    <i class="fas fa-text-width"></i>
+                </button>
+            </div>
+            <div class="flex-1 lyrics-container overflow-y-auto px-4 py-8">
+                <div class="space-y-8 text-center">
+                    <p class="text-gray-400">记忆它总是慢慢的累积</p>
+                    <p class="text-gray-400">在那些最微小的细节里</p>
+                    <p class="text-2xl font-medium text-[#1ED760]">这一生关于你的风景</p>
+                    <p class="text-gray-400">总有一天会再次拥有你</p>
+                    <p class="text-gray-400">纵使迷途也不忘记</p>
+                    <p class="text-gray-400">命中注定的相遇</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = progressContainer.querySelector('.progress-bar');
+        const progressHandle = progressContainer.querySelector('.progress-handle');
+        const progressHover = progressContainer.querySelector('.progress-hover');
+        const currentTimeEl = document.getElementById('currentTime');
+        const totalTimeEl = document.getElementById('totalTime');
+
+        let isDragging = false;
+        let progress = 45;
+        
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateProgress(e) {
+            const rect = progressContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const width = rect.width;
+            progress = Math.max(0, Math.min(100, (x / width) * 100));
+            
+            progressBar.style.setProperty('--progress', `${progress}%`);
+            progressHandle.style.setProperty('--progress', `${progress}%`);
+            
+            // 更新时间显示
+            const duration = 258; // 示例总时长（秒）
+            const currentTime = (duration * progress) / 100;
+            currentTimeEl.textContent = formatTime(currentTime);
+        }
+
+        progressContainer.addEventListener('mousemove', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            progressHover.style.setProperty('--hover-position', `${x}px`);
+            
+            if (isDragging) {
+                updateProgress(e);
+            }
+
+            // 更新悬停提示
+            const width = rect.width;
+            const hoverProgress = (x / width) * 100;
+            const duration = 258; // 示例总时长（秒）
+            const hoverTime = (duration * hoverProgress) / 100;
+            progressHover.textContent = formatTime(hoverTime);
+        });
+
+        progressContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updateProgress(e);
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                updateProgress(e);
+            }
+        });
+
+        let lyricsVisible = false;
+        const lyricsPanel = document.getElementById('lyricsPanel');
+
+        function toggleLyrics() {
+            lyricsVisible = !lyricsVisible;
+            lyricsPanel.style.transform = lyricsVisible ? 'translateY(0)' : 'translateY(100%)';
+        }
+
+        function closeLyrics() {
+            lyricsVisible = false;
+            lyricsPanel.style.transform = 'translateY(100%)';
+        }
+    </script>
+</body>
+</html>

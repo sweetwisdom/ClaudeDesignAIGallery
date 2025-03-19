@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>个人中心 - 轻瘦</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-50">
+    <div class="page-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar fixed top-0 w-full z-50 flex items-center justify-between px-5">
+            <div class="text-sm font-semibold">9:41</div>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 用户信息卡片 -->
+            <div class="gradient-bg px-5 pt-16 pb-8">
+                <div class="flex items-center mb-6">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" 
+                             alt="用户头像" 
+                             class="w-20 h-20 rounded-2xl object-cover border-4 border-white">
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4 flex-1">
+                        <h1 class="text-white text-xl font-bold mb-1">小华</h1>
+                        <p class="text-white text-opacity-80">已坚持打卡 128 天</p>
+                    </div>
+                    <button class="w-10 h-10 rounded-xl bg-white bg-opacity-20 text-white flex items-center justify-center">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+                <!-- 数据概览 -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="glass-effect rounded-xl p-3 text-center">
+                        <p class="text-white font-bold text-xl">15.6</p>
+                        <p class="text-white text-opacity-80 text-xs">已减重(kg)</p>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 text-center">
+                        <p class="text-white font-bold text-xl">78%</p>
+                        <p class="text-white text-opacity-80 text-xs">目标达成</p>
+                    </div>
+                    <div class="glass-effect rounded-xl p-3 text-center">
+                        <p class="text-white font-bold text-xl">42</p>
+                        <p class="text-white text-opacity-80 text-xs">连续打卡</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 主要内容区 -->
+            <div class="px-5 py-6 space-y-6">
+                <!-- 体重趋势 -->
+                <div class="glass-effect rounded-2xl p-4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-lg font-semibold text-gray-800">体重趋势</h2>
+                        <select class="text-sm text-gray-600 bg-transparent">
+                            <option>近一周</option>
+                            <option>近一月</option>
+                            <option>近三月</option>
+                        </select>
+                    </div>
+                    <div class="h-48 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400">
+                        体重趋势图表
+                    </div>
+                </div>
+
+                <!-- 成就徽章 -->
+                <div class="glass-effect rounded-2xl p-4">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">我的成就</h2>
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <div class="w-14 h-14 rounded-full bg-primary-100 flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-award text-primary-600 text-xl"></i>
+                            </div>
+                            <p class="text-xs text-gray-600">坚持达人</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-fire text-orange-500 text-xl"></i>
+                            </div>
+                            <p class="text-xs text-gray-600">燃脂王者</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-crown text-purple-500 text-xl"></i>
+                            </div>
+                            <p class="text-xs text-gray-600">目标达成</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-2">
+                                <i class="fas fa-lock text-gray-400 text-xl"></i>
+                            </div>
+                            <p class="text-xs text-gray-600">待解锁</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 数据统计 -->
+                <div class="glass-effect rounded-2xl p-4">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">本月数据</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-gray-600">运动消耗</span>
+                                <span class="text-sm font-medium text-gray-800">12,480 千卡</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full w-3/4 bg-primary-600 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-gray-600">平均摄入</span>
+                                <span class="text-sm font-medium text-gray-800">1,860 千卡/天</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full w-2/3 bg-green-500 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-gray-600">运动天数</span>
+                                <span class="text-sm font-medium text-gray-800">18/30 天</span>
+                            </div>
+                            <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full w-3/5 bg-blue-500 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 操作按钮组 -->
+                <div class="grid grid-cols-2 gap-4">
+                    <button class="glass-effect rounded-xl p-4 flex items-center hover-scale">
+                        <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-bullseye text-orange-500"></i>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-800">目标设定</h3>
+                            <p class="text-xs text-gray-500">调整减重目标</p>
+                        </div>
+                    </button>
+                    <button class="glass-effect rounded-xl p-4 flex items-center hover-scale">
+                        <div class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-share-alt text-purple-500"></i>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-800">分享成果</h3>
+                            <p class="text-xs text-gray-500">与好友分享</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="bottom-nav fixed bottom-0 w-full px-6">
+            <div class="flex justify-around items-center h-full">
+                <a href="home.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="record.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-plus-circle text-xl"></i>
+                    <span class="text-xs mt-1">记录</span>
+                </a>
+                <a href="community.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-users text-xl"></i>
+                    <span class="text-xs mt-1">社区</span>
+                </a>
+                <a href="profile.html" class="flex flex-col items-center text-primary-600">
+                    <i class="fas fa-user text-xl"></i>
+                    <span class="text-xs mt-1">我的</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

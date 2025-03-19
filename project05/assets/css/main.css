@@ -1,0 +1,107 @@
+/* 全局样式 */
+:root {
+  --primary-color: #4FD1C5;
+  --secondary-color: #2C7A7B;
+  --background-color: #F7FAFC;
+  --text-primary: #2D3748;
+  --text-secondary: #718096;
+}
+
+/* 隐藏滚动条但保持功能 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 玻璃态效果 */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 渐变背景 */
+.gradient-bg {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+/* 卡片阴影 */
+.card-shadow {
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+/* iOS 状态栏样式 */
+.ios-status-bar {
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* 底部导航栏样式 */
+.bottom-nav {
+  height: 83px; /* 标准iOS底部导航栏高度 */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* 页面容器样式 */
+.page-container {
+  max-width: 375px; /* iPhone 15 Pro 宽度 */
+  height: 812px; /* iPhone 15 Pro 高度 */
+  margin: 0 auto;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  background: var(--background-color);
+}
+
+/* 内容区域样式 */
+.content-area {
+  height: calc(100% - 127px); /* 减去状态栏和导航栏的高度 */
+  overflow-y: auto;
+}
+
+/* 通用动画效果 */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* 按钮悬浮效果 */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* 圆形进度条容器 */
+.progress-ring {
+  position: relative;
+  display: inline-block;
+}
+
+/* 数据卡片基础样式 */
+.data-card {
+  border-radius: 20px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+/* 自定义动画 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}

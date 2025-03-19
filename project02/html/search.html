@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - 合同APP</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar">
+            <div class="time">10:15</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="nav-bar-title">搜索</div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content bg-gray-100">
+            <!-- 搜索栏 -->
+            <div class="search-bar mt-4">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-input" placeholder="搜索合同、模板或关键词" autofocus>
+                <i class="fas fa-microphone text-gray-400"></i>
+            </div>
+            
+            <!-- 搜索筛选选项 -->
+            <div class="flex overflow-x-auto py-2 px-4" style="scrollbar-width: none;">
+                <div class="flex-shrink-0 px-4 py-2 mr-2 bg-primary text-white rounded-full text-sm font-medium">
+                    全部
+                </div>
+                <div class="flex-shrink-0 px-4 py-2 mr-2 bg-white text-gray-700 rounded-full text-sm font-medium">
+                    合同
+                </div>
+                <div class="flex-shrink-0 px-4 py-2 mr-2 bg-white text-gray-700 rounded-full text-sm font-medium">
+                    模板
+                </div>
+                <div class="flex-shrink-0 px-4 py-2 mr-2 bg-white text-gray-700 rounded-full text-sm font-medium">
+                    签署方
+                </div>
+                <div class="flex-shrink-0 px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium">
+                    内容
+                </div>
+            </div>
+            
+            <!-- 高级筛选 -->
+            <div class="px-4 mt-4">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-sm font-medium">高级筛选</h2>
+                    <i class="fas fa-sliders text-primary"></i>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-white rounded-lg p-3 flex items-center">
+                        <i class="fas fa-calendar text-primary mr-2"></i>
+                        <span class="text-sm">时间范围</span>
+                        <i class="fas fa-chevron-down text-xs text-gray-400 ml-auto"></i>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex items-center">
+                        <i class="fas fa-tag text-primary mr-2"></i>
+                        <span class="text-sm">合同类型</span>
+                        <i class="fas fa-chevron-down text-xs text-gray-400 ml-auto"></i>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex items-center">
+                        <i class="fas fa-flag text-primary mr-2"></i>
+                        <span class="text-sm">合同状态</span>
+                        <i class="fas fa-chevron-down text-xs text-gray-400 ml-auto"></i>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 flex items-center">
+                        <i class="fas fa-sort-amount-down text-primary mr-2"></i>
+                        <span class="text-sm">排序方式</span>
+                        <i class="fas fa-chevron-down text-xs text-gray-400 ml-auto"></i>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary btn-full mt-3">
+                    应用筛选
+                </button>
+            </div>
+            
+            <!-- 搜索历史 -->
+            <div class="px-4 mt-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 class="text-sm font-medium">搜索历史</h2>
+                    <span class="text-xs text-primary">清除</span>
+                </div>
+                
+                <div class="flex flex-wrap">
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm flex items-center">
+                        <span>租赁合同</span>
+                        <i class="fas fa-times-circle text-gray-400 text-xs ml-2"></i>
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm flex items-center">
+                        <span>北京科技有限公司</span>
+                        <i class="fas fa-times-circle text-gray-400 text-xs ml-2"></i>
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm flex items-center">
+                        <span>保密协议</span>
+                        <i class="fas fa-times-circle text-gray-400 text-xs ml-2"></i>
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm flex items-center">
+                        <span>研发外包</span>
+                        <i class="fas fa-times-circle text-gray-400 text-xs ml-2"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 热门搜索 -->
+            <div class="px-4 mt-6">
+                <h2 class="text-sm font-medium mb-3">热门搜索</h2>
+                
+                <div class="flex flex-wrap">
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm">
+                        劳动合同
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm">
+                        房屋租赁
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm">
+                        保密协议
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm">
+                        服务外包
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm">
+                        采购合同
+                    </div>
+                    <div class="bg-white rounded-full py-1 px-3 mr-2 mb-2 text-sm">
+                        技术合作
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 搜索结果（默认隐藏） -->
+            <div class="hidden">
+                <!-- 搜索结果计数 -->
+                <div class="px-4 mt-4">
+                    <div class="text-sm text-gray-500">找到 <span class="font-medium">12</span> 个结果</div>
+                </div>
+                
+                <!-- 合同结果 -->
+                <div class="px-4 pt-4 pb-1">
+                    <h2 class="text-sm font-medium">合同</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item" data-action="view-contract" data-id="c001">
+                            <div class="list-item-content">
+                                <div class="list-item-title">研发项目<span class="text-primary">外包</span>服务协议</div>
+                                <div class="list-item-subtitle">对方: 北京科技有限公司 · 待签署</div>
+                            </div>
+                            <span class="badge badge-warning">待签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c006">
+                            <div class="list-item-content">
+                                <div class="list-item-title">设备维修<span class="text-primary">外包</span>服务协议</div>
+                                <div class="list-item-subtitle">对方: 杭州维修服务有限公司 · 已终止</div>
+                            </div>
+                            <span class="badge badge-danger">已终止</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="d001">
+                            <div class="list-item-content">
+                                <div class="list-item-title">网站开发<span class="text-primary">外包</span>服务协议</div>
+                                <div class="list-item-subtitle">未分享 · 草稿</div>
+                            </div>
+                            <span class="badge badge-secondary">草稿</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 模板结果 -->
+                <div class="px-4 pt-2 pb-1">
+                    <h2 class="text-sm font-medium">模板</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-laptop-code text-indigo-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">软件开发<span class="text-primary">外包</span>合同</div>
+                                <div class="list-item-subtitle">技术服务类 · 1.8k次使用</div>
+                            </div>
+                            <button class="btn btn-primary btn-small">使用</button>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-headset text-blue-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">客服<span class="text-primary">外包</span>协议</div>
+                                <div class="list-item-subtitle">商务类 · 750次使用</div>
+                            </div>
+                            <button class="btn btn-primary btn-small">使用</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 无搜索结果状态（默认隐藏） -->
+            <div class="hidden flex flex-col items-center justify-center py-12">
+                <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-search text-gray-400 text-2xl"></i>
+                </div>
+                <p class="text-gray-400 text-center">未找到相关结果</p>
+                <p class="text-gray-400 text-xs text-center mt-2">尝试使用其他关键词或调整筛选条件</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

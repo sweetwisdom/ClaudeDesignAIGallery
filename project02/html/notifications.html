@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知中心 - 合同APP</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar">
+            <div class="time">10:15</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="nav-bar-title">通知中心</div>
+            <div class="nav-bar-right">
+                <span class="text-primary">标记已读</span>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content bg-gray-100">
+            <!-- 分段控制器 -->
+            <div class="segmented-control mt-4">
+                <div class="segment active" data-target="all-notifications">
+                    全部
+                </div>
+                <div class="segment" data-target="unread-notifications">
+                    未读
+                </div>
+                <div class="segment" data-target="important-notifications">
+                    重要
+                </div>
+            </div>
+            
+            <!-- 全部通知区域 -->
+            <div id="all-notifications" class="segment-content">
+                <!-- 今日通知 -->
+                <div class="px-4 pt-4 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">今日</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item relative">
+                            <div class="absolute top-3 left-0 w-2 h-2 bg-primary rounded-full"></div>
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-pen-to-square text-blue-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">王大明已签署《研发项目外包服务协议》</div>
+                                <div class="list-item-subtitle">10:30</div>
+                            </div>
+                        </div>
+                        <div class="list-item relative">
+                            <div class="absolute top-3 left-0 w-2 h-2 bg-primary rounded-full"></div>
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-exclamation-triangle text-yellow-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">《办公场地租赁合同》即将到期</div>
+                                <div class="list-item-subtitle">09:15</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">《员工保密协议》已归档成功</div>
+                                <div class="list-item-subtitle">08:45</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 昨日通知 -->
+                <div class="px-4 pt-2 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">昨日</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-share-alt text-blue-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">李明分享了《办公场地租赁合同》给您</div>
+                                <div class="list-item-subtitle">昨天 16:25</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-bell text-purple-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">系统更新：新增电子印章功能</div>
+                                <div class="list-item-subtitle">昨天 14:10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 本周通知 -->
+                <div class="px-4 pt-2 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">本周</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-times-circle text-red-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">张三拒绝了《市场推广服务合同》</div>
+                                <div class="list-item-subtitle">周一 11:30</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-file-import text-green-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">您创建了《研发项目外包服务协议》</div>
+                                <div class="list-item-subtitle">周一 09:20</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 未读通知区域 -->
+            <div id="unread-notifications" class="segment-content" style="display: none;">
+                <div class="px-4 pt-4 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">未读通知</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item relative">
+                            <div class="absolute top-3 left-0 w-2 h-2 bg-primary rounded-full"></div>
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-pen-to-square text-blue-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">王大明已签署《研发项目外包服务协议》</div>
+                                <div class="list-item-subtitle">今天 10:30</div>
+                            </div>
+                        </div>
+                        <div class="list-item relative">
+                            <div class="absolute top-3 left-0 w-2 h-2 bg-primary rounded-full"></div>
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-exclamation-triangle text-yellow-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">《办公场地租赁合同》即将到期</div>
+                                <div class="list-item-subtitle">今天 09:15</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 重要通知区域 -->
+            <div id="important-notifications" class="segment-content" style="display: none;">
+                <div class="px-4 pt-4 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">重要通知</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item relative">
+                            <div class="absolute top-3 left-0 w-2 h-2 bg-primary rounded-full"></div>
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-exclamation-triangle text-yellow-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">《办公场地租赁合同》即将到期</div>
+                                <div class="list-item-subtitle">今天 09:15</div>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center ml-3 mr-3">
+                                <i class="fas fa-times-circle text-red-600"></i>
+                            </div>
+                            <div class="list-item-content">
+                                <div class="list-item-title">张三拒绝了《市场推广服务合同》</div>
+                                <div class="list-item-subtitle">周一 11:30</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 无通知状态 -->
+            <div class="hidden flex flex-col items-center justify-center py-12">
+                <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                    <i class="fas fa-bell-slash text-gray-400 text-2xl"></i>
+                </div>
+                <p class="text-gray-400 text-center">暂无通知</p>
+            </div>
+        </div>
+        
+        <!-- 底部标签栏 -->
+        <div class="tab-bar">
+            <div class="tab-item" data-target="home">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </div>
+            <div class="tab-item" data-target="contracts">
+                <i class="fas fa-file-contract"></i>
+                <span>合同</span>
+            </div>
+            <div class="tab-item" data-target="templates">
+                <i class="fas fa-folder"></i>
+                <span>模板</span>
+            </div>
+            <div class="tab-item active" data-target="notifications">
+                <i class="fas fa-bell"></i>
+                <span>通知</span>
+            </div>
+            <div class="tab-item" data-target="profile">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

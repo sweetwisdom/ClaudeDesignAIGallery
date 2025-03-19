@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>轻瘦 - 智能减重助手</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        .phone-container {
+            max-width: 1600px;
+            margin: 2rem auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            background: var(--background-color);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .frame-title {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="phone-container">
+        <!-- 首页 -->
+        <div>
+            <h2 class="frame-title">首页</h2>
+            <div class="phone-frame card-shadow">
+                <iframe src="pages/home.html" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+
+        <!-- 记录页 -->
+        <div>
+            <h2 class="frame-title">记录</h2>
+            <div class="phone-frame card-shadow">
+                <iframe src="pages/record.html" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+
+        <!-- 社区 -->
+        <div>
+            <h2 class="frame-title">社区</h2>
+            <div class="phone-frame card-shadow">
+                <iframe src="pages/community.html" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+
+        <!-- 个人中心 -->
+        <div>
+            <h2 class="frame-title">个人中心</h2>
+            <div class="phone-frame card-shadow">
+                <iframe src="pages/profile.html" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+
+        <!-- 设置 -->
+        <div>
+            <h2 class="frame-title">设置</h2>
+            <div class="phone-frame card-shadow">
+                <iframe src="pages/settings.html" frameborder="0" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

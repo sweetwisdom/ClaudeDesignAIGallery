@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - 音乐App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .search-input {
+            background-color: #f2f2f7;
+            border-radius: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+        
+        .search-results {
+            display: none; /* 初始隐藏搜索结果 */
+        }
+        
+        .search-category {
+            padding: 10px 16px;
+            white-space: nowrap;
+        }
+        
+        .search-category.active {
+            color: #ff2d55;
+            font-weight: 600;
+        }
+        
+        .hot-search-item {
+            padding: 10px 16px;
+            background-color: #f2f2f7;
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="status-bar-network">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi ml-1"></i>
+        </div>
+        <div class="status-bar-time">20:49</div>
+        <div class="status-bar-battery">
+            <i class="fas fa-battery-full"></i>
+            <span class="ml-1">100%</span>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <!-- 搜索框 -->
+        <div class="px-4 py-3">
+            <div class="flex items-center">
+                <div class="flex-1 relative">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    <input type="text" class="search-input pl-10" placeholder="搜索歌曲、歌手、专辑">
+                    <i class="fas fa-times-circle absolute right-3 top-3 text-gray-400"></i>
+                </div>
+                <a href="home.html" class="ml-3 text-gray-600">取消</a>
+            </div>
+        </div>
+        
+        <!-- 搜索结果显示区域 -->
+        <div class="search-results">
+            <!-- 分类选项卡 -->
+            <div class="overflow-x-auto whitespace-nowrap px-2 border-b border-gray-200">
+                <div class="inline-block">
+                    <button class="search-category active">综合</button>
+                    <button class="search-category">单曲</button>
+                    <button class="search-category">专辑</button>
+                    <button class="search-category">歌手</button>
+                    <button class="search-category">歌单</button>
+                    <button class="search-category">MV</button>
+                </div>
+            </div>
+            
+            <!-- 搜索结果列表 -->
+            <div class="content-area">
+                <h3 class="text-lg font-bold mb-3">单曲</h3>
+                <div class="card mb-4">
+                    <div class="list-item">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="歌曲封面" class="album-cover mr-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold">心跳节奏</h3>
+                            <p class="text-xs text-gray-500">莉莉 · 专辑《心动时刻》</p>
+                        </div>
+                        <button class="play-btn w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-gray-700"></i>
+                        </button>
+                    </div>
+                    <div class="list-item">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1470&auto=format&fit=crop" alt="歌曲封面" class="album-cover mr-3">
+                        <div class="flex-1">
+                            <h3 class="font-bold">心动瞬间</h3>
+                            <p class="text-xs text-gray-500">王力 · 专辑《城市记忆》</p>
+                        </div>
+                        <button class="play-btn w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-play text-gray-700"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <h3 class="text-lg font-bold mb-3">歌手</h3>
+                <div class="flex space-x-4 overflow-x-auto pb-2 mb-4">
+                    <div class="flex flex-col items-center w-20">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1374&auto=format&fit=crop" alt="歌手" class="w-20 h-20 object-cover rounded-full">
+                        <p class="text-xs mt-2 text-center">莉莉</p>
+                        <p class="text-xs text-gray-500">歌手</p>
+                    </div>
+                    <div class="flex flex-col items-center w-20">
+                        <img src="https://images.unsplash.com/photo-1552642986-ccb41e7059e7?q=80&w=1587&auto=format&fit=crop" alt="歌手" class="w-20 h-20 object-cover rounded-full">
+                        <p class="text-xs mt-2 text-center">王力</p>
+                        <p class="text-xs text-gray-500">歌手</p>
+                    </div>
+                </div>
+                
+                <h3 class="text-lg font-bold mb-3">专辑</h3>
+                <div class="flex space-x-4 overflow-x-auto pb-2">
+                    <div class="flex flex-col items-center w-24">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-24 h-24 object-cover rounded-lg">
+                        <p class="text-xs mt-2 text-center">心动时刻</p>
+                        <p class="text-xs text-gray-500 text-center">莉莉</p>
+                    </div>
+                    <div class="flex flex-col items-center w-24">
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1470&auto=format&fit=crop" alt="专辑" class="w-24 h-24 object-cover rounded-lg">
+                        <p class="text-xs mt-2 text-center">城市记忆</p>
+                        <p class="text-xs text-gray-500 text-center">王力</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 热门搜索 -->
+        <div class="content-area search-hot">
+            <h3 class="text-lg font-bold mb-3">热门搜索</h3>
+            <div class="mb-6">
+                <span class="hot-search-item">夏日限定</span>
+                <span class="hot-search-item">新歌榜</span>
+                <span class="hot-search-item">摇滚经典</span>
+                <span class="hot-search-item">华语金曲</span>
+                <span class="hot-search-item">轻音乐</span>
+                <span class="hot-search-item">周杰伦</span>
+                <span class="hot-search-item">抖音热歌</span>
+                <span class="hot-search-item">民谣精选</span>
+            </div>
+            
+            <h3 class="text-lg font-bold mb-3">搜索历史</h3>
+            <div class="card">
+                <div class="list-item">
+                    <i class="fas fa-history text-gray-400 mr-3"></i>
+                    <div class="flex-1">
+                        <h3>心跳节奏</h3>
+                    </div>
+                    <button class="text-gray-400">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-history text-gray-400 mr-3"></i>
+                    <div class="flex-1">
+                        <h3>夏日晚风</h3>
+                    </div>
+                    <button class="text-gray-400">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-history text-gray-400 mr-3"></i>
+                    <div class="flex-1">
+                        <h3>莉莉</h3>
+                    </div>
+                    <button class="text-gray-400">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="p-3 text-center text-gray-500 text-sm">
+                    清除搜索历史
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 迷你播放器 -->
+    <div class="mini-player">
+        <div class="flex items-center">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1470&auto=format&fit=crop" alt="当前播放" class="w-10 h-10 rounded-md mr-3">
+            <div>
+                <h3 class="font-medium text-sm">心跳节奏</h3>
+                <p class="text-xs text-gray-500">莉莉</p>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <div class="equalizer mr-3">
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+                <div class="equalizer-bar"></div>
+            </div>
+            <button class="play-btn w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-pause text-gray-700"></i>
+            </button>
+            <button class="ml-3">
+                <i class="fas fa-forward text-gray-700"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 底部导航栏 -->
+    <div class="tab-bar">
+        <a href="home.html" class="tab-bar-item" data-tab="home">
+            <i class="fas fa-home"></i>
+            <span>发现</span>
+        </a>
+        <a href="library.html" class="tab-bar-item" data-tab="library">
+            <i class="fas fa-music"></i>
+            <span>音乐库</span>
+        </a>
+        <a href="community.html" class="tab-bar-item" data-tab="community">
+            <i class="fas fa-compass"></i>
+            <span>社区</span>
+        </a>
+        <a href="profile.html" class="tab-bar-item" data-tab="profile">
+            <i class="fas fa-user"></i>
+            <span>我的</span>
+        </a>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script>
+        // 搜索页面特定脚本
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-input');
+            const searchResults = document.querySelector('.search-results');
+            const searchHot = document.querySelector('.search-hot');
+            const clearButton = document.querySelector('.fa-times-circle');
+            
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim();
+                
+                if (query.length > 0) {
+                    // 显示搜索结果，隐藏热门搜索
+                    searchResults.style.display = 'block';
+                    searchHot.style.display = 'none';
+                    clearButton.style.display = 'block';
+                } else {
+                    // 隐藏搜索结果，显示热门搜索
+                    searchResults.style.display = 'none';
+                    searchHot.style.display = 'block';
+                    clearButton.style.display = 'none';
+                }
+            });
+            
+            // 初始状态：隐藏清除按钮
+            clearButton.style.display = 'none';
+            
+            // 点击清除按钮
+            clearButton.addEventListener('click', function() {
+                searchInput.value = '';
+                searchResults.style.display = 'none';
+                searchHot.style.display = 'block';
+                this.style.display = 'none';
+            });
+            
+            // 热门搜索项点击
+            const hotSearchItems = document.querySelectorAll('.hot-search-item');
+            hotSearchItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    searchInput.value = this.textContent;
+                    searchInput.dispatchEvent(new Event('input'));
+                });
+            });
+        });
+    </script>
+</body>
+</html>

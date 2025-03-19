@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>首页 - 轻瘦</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="bg-gray-50">
+    <div class="page-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar fixed top-0 w-full z-50 flex items-center justify-between px-5">
+            <div class="text-sm font-semibold">9:41</div>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-area pt-12 px-5">
+            <!-- 顶部问候区 -->
+            <div class="flex justify-between items-center mb-8 mt-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800">早安, 小华</h1>
+                    <p class="text-gray-600">今天也要加油哦！</p>
+                </div>
+                <div class="w-12 h-12 rounded-full overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" 
+                         alt="用户头像" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- 今日进度环 -->
+            <div class="glass-effect rounded-3xl p-6 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800">今日目标</h2>
+                    <span class="text-primary-600">80%</span>
+                </div>
+                <div class="flex justify-around items-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-2">
+                            <span class="text-blue-600 font-semibold">1200</span>
+                        </div>
+                        <p class="text-sm text-gray-600">已消耗</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-2">
+                            <span class="text-green-600 font-semibold">800</span>
+                        </div>
+                        <p class="text-sm text-gray-600">已摄入</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-2">
+                            <span class="text-purple-600 font-semibold">400</span>
+                        </div>
+                        <p class="text-sm text-gray-600">还可吃</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 饮食记录 -->
+            <div class="data-card glass-effect">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800">今日饮食</h2>
+                    <button class="text-primary-600 hover-scale">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-coffee text-orange-500"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-gray-800 font-medium">早餐</h3>
+                            <p class="text-sm text-gray-600">全麦面包 + 牛奶</p>
+                        </div>
+                        <span class="text-gray-600">320千卡</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mr-4">
+                            <i class="fas fa-utensils text-green-500"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-gray-800 font-medium">午餐</h3>
+                            <p class="text-sm text-gray-600">鸡胸肉沙拉</p>
+                        </div>
+                        <span class="text-gray-600">480千卡</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 运动记录 -->
+            <div class="data-card glass-effect mt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold text-gray-800">今日运动</h2>
+                    <button class="text-primary-600 hover-scale">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mr-4">
+                        <i class="fas fa-running text-blue-500"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-gray-800 font-medium">快走</h3>
+                        <p class="text-sm text-gray-600">45分钟 · 4.2公里</p>
+                    </div>
+                    <span class="text-gray-600">220千卡</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="bottom-nav fixed bottom-0 w-full px-6">
+            <div class="flex justify-around items-center h-full">
+                <a href="home.html" class="flex flex-col items-center text-primary-600">
+                    <i class="fas fa-home text-xl"></i>
+                    <span class="text-xs mt-1">首页</span>
+                </a>
+                <a href="record.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-plus-circle text-xl"></i>
+                    <span class="text-xs mt-1">记录</span>
+                </a>
+                <a href="community.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-users text-xl"></i>
+                    <span class="text-xs mt-1">社区</span>
+                </a>
+                <a href="profile.html" class="flex flex-col items-center text-gray-400">
+                    <i class="fas fa-user text-xl"></i>
+                    <span class="text-xs mt-1">我的</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

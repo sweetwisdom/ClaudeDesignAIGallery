@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置 - 合同App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-gray-50">
+    <!-- 状态栏 -->
+    <div class="status-bar flex justify-between items-center">
+        <div class="text-sm">10:53</div>
+        <div class="flex items-center gap-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="flex-1">
+                <h1 class="text-xl font-semibold">设置</h1>
+            </div>
+        </div>
+
+        <!-- 账号安全 -->
+        <div class="card">
+            <h2 class="text-lg font-semibold mb-4">账号安全</h2>
+            <div class="space-y-4">
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-lock text-blue-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">密码修改</h3>
+                            <p class="text-sm text-gray-500">定期更新密码更安全</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-green-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">生物认证</h3>
+                            <p class="text-sm text-gray-500">指纹/面容解锁</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-sm text-gray-500 mr-2">已开启</span>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 通知设置 -->
+        <div class="card">
+            <h2 class="text-lg font-semibold mb-4">通知设置</h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
+                            <i class="fas fa-bell text-purple-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">合同待签提醒</h3>
+                            <p class="text-sm text-gray-500">新合同通知</p>
+                        </div>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-clock text-orange-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">到期提醒</h3>
+                            <p class="text-sm text-gray-500">合同即将到期提醒</p>
+                        </div>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 其他设置 -->
+        <div class="card">
+            <h2 class="text-lg font-semibold mb-4">其他设置</h2>
+            <div class="space-y-4">
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+                            <i class="fas fa-globe text-gray-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">语言</h3>
+                            <p class="text-sm text-gray-500">简体中文</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+                            <i class="fas fa-cloud text-gray-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">存储空间</h3>
+                            <p class="text-sm text-gray-500">已使用 2.5GB/10GB</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                <div class="list-item">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="font-medium">关于</h3>
+                            <p class="text-sm text-gray-500">版本 2.1.0</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- 退出按钮 -->
+        <div class="card">
+            <button class="w-full py-3 text-red-500 font-medium">
+                退出登录
+            </button>
+        </div>
+    </div>
+
+    <!-- 底部标签栏 -->
+    <div class="tab-bar">
+        <div class="grid grid-cols-4 h-full">
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-home tab-icon"></i>
+                <span class="tab-label">首页</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-file-contract tab-icon"></i>
+                <span class="tab-label">模板</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-user tab-icon"></i>
+                <span class="tab-label">我的</span>
+            </div>
+            <div class="flex flex-col items-center justify-center">
+                <i class="fas fa-cog tab-icon active"></i>
+                <span class="tab-label active">设置</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

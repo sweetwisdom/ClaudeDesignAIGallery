@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - 合同APP</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar">
+            <div class="time">10:15</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="nav-bar-title">个人中心</div>
+            <div class="nav-bar-right">
+                <i class="fas fa-cog text-gray-600"></i>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content bg-gray-100">
+            <!-- 个人资料卡片 -->
+            <div class="bg-white px-4 py-6">
+                <div class="flex items-center">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80" alt="头像" class="avatar mr-4">
+                    <div>
+                        <h1 class="text-xl font-bold">李明</h1>
+                        <p class="text-gray-500">ABC科技有限公司 - 法定代表人</p>
+                    </div>
+                </div>
+                
+                <div class="flex mt-6">
+                    <div class="flex-1 text-center">
+                        <div class="text-lg font-bold">28</div>
+                        <div class="text-sm text-gray-500">已签署</div>
+                    </div>
+                    <div class="flex-1 text-center border-l border-r border-gray-200">
+                        <div class="text-lg font-bold">15</div>
+                        <div class="text-sm text-gray-500">待签署</div>
+                    </div>
+                    <div class="flex-1 text-center">
+                        <div class="text-lg font-bold">42</div>
+                        <div class="text-sm text-gray-500">草稿箱</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 我的签名 -->
+            <div class="card mx-4 mt-4">
+                <div class="card-header">
+                    <div class="card-title">我的签名</div>
+                    <a href="#" class="text-sm text-primary">管理</a>
+                </div>
+                <div class="card-content">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <div class="h-10 flex items-center mb-2">
+                                <img src="https://images.unsplash.com/photo-1449583697936-3f6aecc0fe8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=40&q=80" alt="签名" style="max-height: 40px;">
+                            </div>
+                            <span class="text-xs text-gray-500">手写签名</span>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <div class="h-10 flex items-center mb-2">
+                                <div class="text-base font-bold">李 明</div>
+                            </div>
+                            <span class="text-xs text-gray-500">印刷体</span>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <div class="h-10 flex items-center justify-center mb-2">
+                                <i class="fas fa-plus text-gray-400"></i>
+                            </div>
+                            <span class="text-xs text-gray-500">添加新签名</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 企业信息 -->
+            <div class="card mx-4 mt-4">
+                <div class="card-header">
+                    <div class="card-title">企业信息</div>
+                    <a href="#" class="text-sm text-primary">管理</a>
+                </div>
+                <div class="card-content p-0">
+                    <div class="list">
+                        <div class="list-item no-click">
+                            <div class="list-item-content">
+                                <div class="list-item-title">企业名称</div>
+                                <div class="list-item-subtitle">ABC科技有限公司</div>
+                            </div>
+                        </div>
+                        <div class="list-item no-click">
+                            <div class="list-item-content">
+                                <div class="list-item-title">统一社会信用代码</div>
+                                <div class="list-item-subtitle">91110105MA00A12B3C</div>
+                            </div>
+                        </div>
+                        <div class="list-item no-click">
+                            <div class="list-item-content">
+                                <div class="list-item-title">法定代表人</div>
+                                <div class="list-item-subtitle">李明</div>
+                            </div>
+                        </div>
+                        <div class="list-item no-click">
+                            <div class="list-item-content">
+                                <div class="list-item-title">企业印章</div>
+                                <div class="list-item-subtitle">3个可用印章</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 账户与安全 -->
+            <div class="card mx-4 mt-4">
+                <div class="card-header">
+                    <div class="card-title">账户与安全</div>
+                </div>
+                <div class="card-content p-0">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">个人信息</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">修改密码</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">实名认证</div>
+                            </div>
+                            <span class="badge badge-success">已认证</span>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">隐私设置</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 偏好设置 -->
+            <div class="card mx-4 mt-4">
+                <div class="card-header">
+                    <div class="card-title">偏好设置</div>
+                </div>
+                <div class="card-content p-0">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">通知设置</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">语言</div>
+                                <div class="list-item-subtitle">简体中文</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">主题</div>
+                                <div class="list-item-subtitle">系统默认</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他选项 -->
+            <div class="card mx-4 mt-4 mb-6">
+                <div class="card-content p-0">
+                    <div class="list">
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">帮助与反馈</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title">关于我们</div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-item-content">
+                                <div class="list-item-title text-danger">退出登录</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-xs text-gray-400 py-6">
+                合同APP v1.0.0
+            </div>
+        </div>
+        
+        <!-- 底部标签栏 -->
+        <div class="tab-bar">
+            <div class="tab-item" data-target="home">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </div>
+            <div class="tab-item" data-target="contracts">
+                <i class="fas fa-file-contract"></i>
+                <span>合同</span>
+            </div>
+            <div class="tab-item" data-target="templates">
+                <i class="fas fa-folder"></i>
+                <span>模板</span>
+            </div>
+            <div class="tab-item" data-target="notifications">
+                <i class="fas fa-bell"></i>
+                <span>通知</span>
+            </div>
+            <div class="tab-item active" data-target="profile">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同APP - 原型</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        .phone-container {
+            width: 390px;
+            height: 844px;
+            position: relative;
+            border-radius: 45px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            margin: 40px auto;
+        }
+        
+        .prototype-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+            gap: 40px;
+            padding: 40px;
+        }
+        
+        .prototype-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .prototype-title {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold text-center text-gray-800">合同APP - UI/UX 原型展示</h1>
+        </div>
+    </header>
+    
+    <div class="container mx-auto py-8">
+        <div class="prototype-grid">
+            <!-- 首页/仪表盘 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/home.html" title="首页/仪表盘"></iframe>
+                </div>
+                <div class="prototype-title">首页/仪表盘</div>
+            </div>
+            
+            <!-- 合同列表 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/contracts.html" title="合同列表"></iframe>
+                </div>
+                <div class="prototype-title">合同列表</div>
+            </div>
+            
+            <!-- 合同详情 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/contract_detail.html" title="合同详情"></iframe>
+                </div>
+                <div class="prototype-title">合同详情</div>
+            </div>
+            
+            <!-- 创建合同 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/create_contract.html" title="创建合同"></iframe>
+                </div>
+                <div class="prototype-title">创建合同</div>
+            </div>
+            
+            <!-- 合同模板 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/templates.html" title="合同模板"></iframe>
+                </div>
+                <div class="prototype-title">合同模板</div>
+            </div>
+            
+            <!-- 电子签名 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/signature.html" title="电子签名"></iframe>
+                </div>
+                <div class="prototype-title">电子签名</div>
+            </div>
+            
+            <!-- 通知中心 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/notifications.html" title="通知中心"></iframe>
+                </div>
+                <div class="prototype-title">通知中心</div>
+            </div>
+            
+            <!-- 个人中心 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/profile.html" title="个人中心"></iframe>
+                </div>
+                <div class="prototype-title">个人中心</div>
+            </div>
+            
+            <!-- 搜索页面 -->
+            <div class="prototype-item">
+                <div class="phone-container">
+                    <iframe src="html/search.html" title="搜索"></iframe>
+                </div>
+                <div class="prototype-title">搜索</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>

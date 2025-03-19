@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同列表 - 合同APP</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- iOS 状态栏 -->
+        <div class="ios-status-bar">
+            <div class="time">10:15</div>
+            <div class="icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <div class="nav-bar-title">我的合同</div>
+            <div class="nav-bar-right">
+                <i class="fas fa-plus text-primary"></i>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content bg-gray-100">
+            <!-- 搜索栏 -->
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-input" placeholder="搜索合同">
+            </div>
+            
+            <!-- 分段控制器 -->
+            <div class="segmented-control">
+                <div class="segment active" data-target="all-contracts">
+                    全部
+                </div>
+                <div class="segment" data-target="draft-contracts">
+                    草稿
+                </div>
+                <div class="segment" data-target="pending-contracts">
+                    待签署
+                </div>
+                <div class="segment" data-target="completed-contracts">
+                    已完成
+                </div>
+            </div>
+            
+            <!-- 全部合同区域 -->
+            <div id="all-contracts" class="segment-content">
+                <!-- 今日 -->
+                <div class="px-4 pt-2 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">今日</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item" data-action="view-contract" data-id="c001">
+                            <div class="list-item-content">
+                                <div class="list-item-title">研发项目外包服务协议</div>
+                                <div class="list-item-subtitle">对方: 北京科技有限公司</div>
+                            </div>
+                            <span class="badge badge-warning">待签署</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 本周 -->
+                <div class="px-4 pt-2 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">本周</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item" data-action="view-contract" data-id="c002">
+                            <div class="list-item-content">
+                                <div class="list-item-title">办公场地租赁合同</div>
+                                <div class="list-item-subtitle">对方: 上海房产投资有限公司</div>
+                            </div>
+                            <span class="badge badge-primary">待确认</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c003">
+                            <div class="list-item-content">
+                                <div class="list-item-title">员工保密协议</div>
+                                <div class="list-item-subtitle">对方: 张三</div>
+                            </div>
+                            <span class="badge badge-success">已签署</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 本月 -->
+                <div class="px-4 pt-2 pb-1">
+                    <h2 class="text-sm text-gray-500 font-medium">本月</h2>
+                </div>
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item" data-action="view-contract" data-id="c004">
+                            <div class="list-item-content">
+                                <div class="list-item-title">软件采购协议</div>
+                                <div class="list-item-subtitle">对方: 广州软件科技有限公司</div>
+                            </div>
+                            <span class="badge badge-success">已签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c005">
+                            <div class="list-item-content">
+                                <div class="list-item-title">市场推广服务合同</div>
+                                <div class="list-item-subtitle">对方: 深圳营销咨询有限公司</div>
+                            </div>
+                            <span class="badge badge-success">已签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c006">
+                            <div class="list-item-content">
+                                <div class="list-item-title">设备维修服务协议</div>
+                                <div class="list-item-subtitle">对方: 杭州维修服务有限公司</div>
+                            </div>
+                            <span class="badge badge-danger">已终止</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 草稿合同区域 -->
+            <div id="draft-contracts" class="segment-content" style="display: none;">
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item" data-action="view-contract" data-id="d001">
+                            <div class="list-item-content">
+                                <div class="list-item-title">网站开发服务协议</div>
+                                <div class="list-item-subtitle">创建于: 2025-03-12</div>
+                            </div>
+                            <span class="badge badge-secondary">草稿</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="d002">
+                            <div class="list-item-content">
+                                <div class="list-item-title">员工培训协议</div>
+                                <div class="list-item-subtitle">创建于: 2025-03-10</div>
+                            </div>
+                            <span class="badge badge-secondary">草稿</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 待签署合同区域 -->
+            <div id="pending-contracts" class="segment-content" style="display: none;">
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item" data-action="view-contract" data-id="c001">
+                            <div class="list-item-content">
+                                <div class="list-item-title">研发项目外包服务协议</div>
+                                <div class="list-item-subtitle">到期日: 2025-03-22</div>
+                            </div>
+                            <span class="badge badge-warning">待签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="p001">
+                            <div class="list-item-content">
+                                <div class="list-item-title">企业合作备忘录</div>
+                                <div class="list-item-subtitle">到期日: 2025-04-15</div>
+                            </div>
+                            <span class="badge badge-warning">待签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c002">
+                            <div class="list-item-content">
+                                <div class="list-item-title">办公场地租赁合同</div>
+                                <div class="list-item-subtitle">对方已签署</div>
+                            </div>
+                            <span class="badge badge-primary">待确认</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 已完成合同区域 -->
+            <div id="completed-contracts" class="segment-content" style="display: none;">
+                <div class="card mx-4 mb-4">
+                    <div class="list">
+                        <div class="list-item" data-action="view-contract" data-id="c003">
+                            <div class="list-item-content">
+                                <div class="list-item-title">员工保密协议</div>
+                                <div class="list-item-subtitle">签署日期: 2025-03-17</div>
+                            </div>
+                            <span class="badge badge-success">已签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c004">
+                            <div class="list-item-content">
+                                <div class="list-item-title">软件采购协议</div>
+                                <div class="list-item-subtitle">签署日期: 2025-03-10</div>
+                            </div>
+                            <span class="badge badge-success">已签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c005">
+                            <div class="list-item-content">
+                                <div class="list-item-title">市场推广服务合同</div>
+                                <div class="list-item-subtitle">签署日期: 2025-03-05</div>
+                            </div>
+                            <span class="badge badge-success">已签署</span>
+                        </div>
+                        <div class="list-item" data-action="view-contract" data-id="c006">
+                            <div class="list-item-content">
+                                <div class="list-item-title">设备维修服务协议</div>
+                                <div class="list-item-subtitle">终止日期: 2025-03-08</div>
+                            </div>
+                            <span class="badge badge-danger">已终止</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 浮动添加按钮 -->
+            <div class="fixed bottom-24 right-6">
+                <button class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg">
+                    <i class="fas fa-plus text-white text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 底部标签栏 -->
+        <div class="tab-bar">
+            <div class="tab-item" data-target="home">
+                <i class="fas fa-home"></i>
+                <span>首页</span>
+            </div>
+            <div class="tab-item active" data-target="contracts">
+                <i class="fas fa-file-contract"></i>
+                <span>合同</span>
+            </div>
+            <div class="tab-item" data-target="templates">
+                <i class="fas fa-folder"></i>
+                <span>模板</span>
+            </div>
+            <div class="tab-item" data-target="notifications">
+                <i class="fas fa-bell"></i>
+                <span>通知</span>
+            </div>
+            <div class="tab-item" data-target="profile">
+                <i class="fas fa-user"></i>
+                <span>我的</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

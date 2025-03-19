@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合同详情 - 合同App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+<body class="bg-gray-50">
+    <!-- 状态栏 -->
+    <div class="status-bar flex justify-between items-center">
+        <div class="text-sm">10:53</div>
+        <div class="flex items-center gap-2">
+            <i class="fas fa-signal"></i>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <button class="mr-4">
+                <i class="fas fa-arrow-left text-gray-600"></i>
+            </button>
+            <div class="flex-1">
+                <h1 class="text-xl font-semibold">合同详情</h1>
+            </div>
+            <button class="ml-4">
+                <i class="fas fa-ellipsis-v text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- 合同基本信息 -->
+        <div class="card">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h2 class="text-xl font-semibold">服务外包协议</h2>
+                    <p class="text-gray-500 mt-1">合同编号：CT2025031901</p>
+                </div>
+                <span class="status-tag pending">待签署</span>
+            </div>
+            
+            <!-- 签署进度 -->
+            <div class="mt-6">
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-gray-600">签署进度</span>
+                    <span class="text-blue-600">2/3</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 66%"></div>
+                </div>
+            </div>
+
+            <!-- 签署方信息 -->
+            <div class="mt-6 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=80&h=80&auto=format" alt="头像" class="avatar">
+                        <div class="ml-3">
+                            <h3 class="font-medium">张先生</h3>
+                            <p class="text-sm text-gray-500">科技有限公司</p>
+                        </div>
+                    </div>
+                    <span class="status-tag signed">已签署</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&auto=format" alt="头像" class="avatar">
+                        <div class="ml-3">
+                            <h3 class="font-medium">李女士</h3>
+                            <p class="text-sm text-gray-500">法务部门</p>
+                        </div>
+                    </div>
+                    <span class="status-tag signed">已签署</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80&h=80&auto=format" alt="头像" class="avatar">
+                        <div class="ml-3">
+                            <h3 class="font-medium">王总</h3>
+                            <p class="text-sm text-gray-500">总经理</p>
+                        </div>
+                    </div>
+                    <span class="status-tag pending">待签署</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 合同信息 -->
+        <div class="card">
+            <h3 class="font-semibold mb-4">合同信息</h3>
+            <div class="space-y-4">
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">合同类型</span>
+                    <span>服务合同</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">生效日期</span>
+                    <span>2025-03-19</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">截止日期</span>
+                    <span>2026-03-18</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                    <span class="text-gray-500">合同金额</span>
+                    <span class="font-medium">¥280,000.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文件预览 -->
+        <div class="card">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-semibold">合同文件</h3>
+                <button class="text-blue-600 text-sm">
+                    <i class="fas fa-download mr-1"></i>下载
+                </button>
+            </div>
+            <div class="bg-gray-100 rounded-xl p-4 flex items-center">
+                <i class="far fa-file-pdf text-red-500 text-2xl"></i>
+                <div class="ml-3 flex-1">
+                    <p class="font-medium">服务外包协议.pdf</p>
+                    <p class="text-sm text-gray-500">8.5 MB · PDF</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="fixed bottom-8 left-4 right-4 flex gap-4">
+            <button class="btn-secondary flex-1">拒绝</button>
+            <button class="btn-primary flex-1">签署合同</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐App原型</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        .phone-container {
+            width: 390px; /* iPhone 15 Pro 宽度 */
+            height: 844px; /* iPhone 15 Pro 高度 */
+            background-color: #fff;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            position: relative;
+            display: inline-block;
+            border: 10px solid #000;
+        }
+        .page-title {
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+        }
+        .phone-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .pages-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-center my-8">音乐App原型展示</h1>
+        
+        <div class="pages-grid">
+            <!-- 首页 -->
+            <div>
+                <h2 class="page-title">首页/发现</h2>
+                <div class="phone-container">
+                    <iframe src="home.html" class="phone-iframe"></iframe>
+                </div>
+            </div>
+            
+            <!-- 音乐库 -->
+            <div>
+                <h2 class="page-title">我的音乐库</h2>
+                <div class="phone-container">
+                    <iframe src="library.html" class="phone-iframe"></iframe>
+                </div>
+            </div>
+            
+            <!-- 搜索页 -->
+            <div>
+                <h2 class="page-title">搜索</h2>
+                <div class="phone-container">
+                    <iframe src="search.html" class="phone-iframe"></iframe>
+                </div>
+            </div>
+            
+            <!-- 播放器页面 -->
+            <div>
+                <h2 class="page-title">播放器</h2>
+                <div class="phone-container">
+                    <iframe src="player.html" class="phone-iframe"></iframe>
+                </div>
+            </div>
+            
+            <!-- 个人中心 -->
+            <div>
+                <h2 class="page-title">个人中心</h2>
+                <div class="phone-container">
+                    <iframe src="profile.html" class="phone-iframe"></iframe>
+                </div>
+            </div>
+            
+            <!-- 社区/动态 -->
+            <div>
+                <h2 class="page-title">社区/动态</h2>
+                <div class="phone-container">
+                    <iframe src="community.html" class="phone-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

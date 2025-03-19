@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <link rel="stylesheet" href="./comm.css">
+    <style>
+        body {
+            background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .search-container::-webkit-scrollbar {
+            display: none;
+        }
+        .category-card {
+            transition: transform 0.3s ease;
+        }
+        .category-card:hover {
+            transform: scale(1.02);
+        }
+        .search-input:focus {
+            box-shadow: 0 0 0 2px #1ED760;
+        }
+        .tag-item {
+            transition: all 0.3s ease;
+        }
+        .tag-item:hover {
+            background-color: #1ED760;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+    <!-- 搜索框 -->
+    <div class="sticky top-0 bg-[#1a1a1a] p-4 pb-2 z-10">
+        <div class="relative mb-4">
+            <input type="search" 
+                   placeholder="搜索音乐、歌手、歌词、播客" 
+                   class="search-input w-full bg-white/10 rounded-full py-3 pl-12 pr-4 text-white placeholder-gray-400 outline-none border border-transparent focus:border-[#1ED760] transition-all">
+            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+        <div class="flex space-x-2 overflow-x-auto pb-2 search-container">
+            <button class="px-4 py-1.5 bg-[#1ED760] rounded-full text-black text-sm font-medium whitespace-nowrap">音乐</button>
+            <button class="px-4 py-1.5 bg-white/10 rounded-full text-white text-sm font-medium whitespace-nowrap hover:bg-white/20 transition-colors">播客</button>
+            <button class="px-4 py-1.5 bg-white/10 rounded-full text-white text-sm font-medium whitespace-nowrap hover:bg-white/20 transition-colors">歌单</button>
+            <button class="px-4 py-1.5 bg-white/10 rounded-full text-white text-sm font-medium whitespace-nowrap hover:bg-white/20 transition-colors">歌手</button>
+        </div>
+    </div>
+
+    <!-- 热门搜索标签 -->
+    <section class="p-4">
+        <h2 class="text-xl font-bold mb-4">热门搜索</h2>
+        <div class="flex flex-wrap gap-2">
+            <span class="tag-item px-4 py-2 bg-white/10 rounded-full text-sm cursor-pointer">周杰伦新专辑</span>
+            <span class="tag-item px-4 py-2 bg-white/10 rounded-full text-sm cursor-pointer">夜曲</span>
+            <span class="tag-item px-4 py-2 bg-white/10 rounded-full text-sm cursor-pointer">Taylor Swift</span>
+            <span class="tag-item px-4 py-2 bg-white/10 rounded-full text-sm cursor-pointer">华语流行</span>
+            <span class="tag-item px-4 py-2 bg-white/10 rounded-full text-sm cursor-pointer">经典音乐</span>
+            <span class="tag-item px-4 py-2 bg-white/10 rounded-full text-sm cursor-pointer">抖音热歌</span>
+        </div>
+    </section>
+
+    <!-- 音乐分类 -->
+    <section class="p-4">
+        <h2 class="text-xl font-bold mb-4">浏览全部</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="category-card relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer bg-gradient-to-br from-pink-500 to-rose-500">
+                <img src="https://picsum.photos/id/1001/400/300" class="w-full h-full object-cover mix-blend-overlay" alt="流行音乐">
+                <div class="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
+                    <h3 class="text-xl font-bold">流行</h3>
+                    <p class="text-sm text-gray-200">当代流行音乐精选</p>
+                </div>
+            </div>
+            <div class="category-card relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer bg-gradient-to-br from-purple-500 to-indigo-500">
+                <img src="https://picsum.photos/id/1002/400/300" class="w-full h-full object-cover mix-blend-overlay" alt="摇滚">
+                <div class="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
+                    <h3 class="text-xl font-bold">摇滚</h3>
+                    <p class="text-sm text-gray-200">震撼心灵的音乐</p>
+                </div>
+            </div>
+            <div class="category-card relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer bg-gradient-to-br from-blue-500 to-cyan-500">
+                <img src="https://picsum.photos/id/1003/400/300" class="w-full h-full object-cover mix-blend-overlay" alt="爵士">
+                <div class="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
+                    <h3 class="text-xl font-bold">爵士</h3>
+                    <p class="text-sm text-gray-200">复古与现代的邂逅</p>
+                </div>
+            </div>
+            <div class="category-card relative overflow-hidden rounded-xl aspect-[4/3] cursor-pointer bg-gradient-to-br from-amber-500 to-orange-500">
+                <img src="https://picsum.photos/id/1004/400/300" class="w-full h-full object-cover mix-blend-overlay" alt="古典">
+                <div class="absolute inset-0 p-4 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent">
+                    <h3 class="text-xl font-bold">古典</h3>
+                    <p class="text-sm text-gray-200">永恒的艺术瑰宝</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐艺人 -->
+    <section class="p-4">
+        <h2 class="text-xl font-bold mb-4">推荐艺人</h2>
+        <div class="grid grid-cols-4 gap-4">
+            <div class="text-center space-y-2">
+                <div class="aspect-square rounded-full overflow-hidden ring-2 ring-[#1ED760] p-0.5">
+                    <img src="https://picsum.photos/id/1005/200/200" class="w-full h-full object-cover rounded-full" alt="艺人">
+                </div>
+                <p class="text-sm font-medium truncate">周杰伦</p>
+            </div>
+            <div class="text-center space-y-2">
+                <div class="aspect-square rounded-full overflow-hidden ring-2 ring-[#1ED760] p-0.5">
+                    <img src="https://picsum.photos/id/1006/200/200" class="w-full h-full object-cover rounded-full" alt="艺人">
+                </div>
+                <p class="text-sm font-medium truncate">林俊杰</p>
+            </div>
+            <div class="text-center space-y-2">
+                <div class="aspect-square rounded-full overflow-hidden ring-2 ring-[#1ED760] p-0.5">
+                    <img src="https://picsum.photos/id/1007/200/200" class="w-full h-full object-cover rounded-full" alt="艺人">
+                </div>
+                <p class="text-sm font-medium truncate">邓紫棋</p>
+            </div>
+            <div class="text-center space-y-2">
+                <div class="aspect-square rounded-full overflow-hidden ring-2 ring-[#1ED760] p-0.5">
+                    <img src="https://picsum.photos/id/1008/200/200" class="w-full h-full object-cover rounded-full" alt="艺人">
+                </div>
+                <p class="text-sm font-medium truncate">五月天</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
